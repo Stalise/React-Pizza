@@ -1,0 +1,254 @@
+{
+   "pizzas": [
+      {
+         "pepperoni": {
+            "type": {
+               "all": true,
+               "meat": true,
+               "cheese": true
+            },
+            "name": "'Пепперони",
+            "img": "pepperoni.jpeg",
+            "price": {
+               "low": 395,
+               "average": 639,
+               "high": 789
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "cheese": {
+            "type": {
+               "all": true,
+               "cheese": true,
+               "vegan": true
+            },
+            "name": "Сырная 🌱",
+            "img": "cheese.jpeg",
+            "price": {
+               "low": 245,
+               "average": 449,
+               "high": 589
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "ham_cheese": {
+            "type": {
+               "all": true,
+               "meat": true,
+               "cheese": true
+            },
+            "name": "Ветчина и грибы",
+            "img": "ham-cheese.jpeg",
+            "price": {
+               "low": 345,
+               "average": 539,
+               "high": 699
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "double_chicken": {
+            "type": {
+               "all": true,
+               "meat": true,
+               "cheese": true
+            },
+            "name": "Двойной цыпленок",
+            "img": "double-chicken.jpeg",
+            "price": {
+               "low": 295,
+               "average": 449,
+               "high": 589
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "cheese_chiken": {
+            "type": {
+               "all": true,
+               "meat": true,
+               "cheese": true
+            },
+            "name": "Сырный цыпленок",
+            "img": "cheese-chiken.jpg",
+            "price": {
+               "low": 395,
+               "average": 639,
+               "high": 789
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "mexican": {
+            "type": {
+               "all": true,
+               "meat": true,
+               "cheese": true,
+               "sharp": true
+            },
+            "name": "Мексиканская 🌶️🌶️",
+            "img": "mexican.jpg",
+            "price": {
+               "low": 445,
+               "average": 699,
+               "high": 849
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "pepperoni_fresh": {
+            "type": {
+               "all": true,
+               "meat": true,
+               "cheese": true
+            },
+            "name": "Пепперони фреш",
+            "img": "pepperoni-fresh.jpeg",
+            "price": {
+               "low": 245,
+               "average": 449,
+               "high": 589
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "four_cheese": {
+            "type": {
+               "all": true,
+               "cheese": true,
+               "vegan": true
+            },
+            "name": "Четыре сыра 🌱",
+            "img": "four-cheese.jpeg",
+            "price": {
+               "low": 445,
+               "average": 699,
+               "high": 849
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "veg_mush": {
+            "type": {
+               "all": true,
+               "cheese": true,
+               "vegan": true
+            },
+            "name": "Овощи и грибы 🌱",
+            "img": "veg-mush.jpeg",
+            "price": {
+               "low": 395,
+               "average": 639,
+               "high": 789
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      },
+      {
+         "pizza_pie": {
+            "type": {
+               "all": true,
+               "vegan": true
+            },
+            "name": "Пицца-пирог 🌱",
+            "img": "pizza-pie.jpg",
+            "price": {
+               "low": 345,
+               "average": 539,
+               "high": 699
+            },
+            "size": {
+               "low": 25,
+               "average": 30,
+               "high": 35
+            },
+            "dough": {
+               "traditional": true,
+               "thin": true
+            }
+         }
+      }
+   ]
+}
