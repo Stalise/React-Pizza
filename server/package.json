@@ -1,0 +1,24 @@
+{
+   "name": "server",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "start": "node index.js",
+      "dev": "nodemon index.js"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "cookie-parser": "^1.4.6",
+      "cors": "^2.8.5",
+      "dotenv": "^14.3.2",
+      "express": "^4.17.2",
+      "jsonwebtoken": "^8.5.1",
+      "pg": "^8.7.1"
+   },
+   "devDependencies": {
+      "nodemon": "^2.0.15"
+   }
+}
