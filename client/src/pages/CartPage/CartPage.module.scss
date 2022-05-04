@@ -1,0 +1,107 @@
+.main {
+   max-width: 1340px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.cart {
+   max-width: 100%;
+   width: 100%;
+   padding: 40px 15px;
+   display: flex;
+   justify-content: center;
+   background-color: #fff;
+   border-radius: 13px;
+   .content {
+      max-width: 800px;
+      width: 100%;
+      .contentTop {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-end;
+         margin-bottom: 70px;
+         .text {
+            display: flex;
+            align-items: flex-end;
+            .textIcon {
+               margin-right: 15px;
+            }
+            .textTitle {
+               font-family: "Proxima-Nova";
+               font-weight: 700;
+               font-size: 35px;
+               line-height: 25px;
+            }
+         }
+         .clear {
+            cursor: pointer;
+            color: #b6b6b6;
+            font-size: 17px;
+            margin-left: 8px;
+            line-height: 21px;
+            transition: color 0.3s;
+
+            &:hover {
+               color: #000;
+            }
+         }
+      }
+   }
+}
+
+@media (max-width: 550px) {
+   .cart {
+      .content {
+         .contentTop {
+            margin-bottom: 70px;
+            .text {
+               .textIcon {
+                  margin-right: 10px;
+                  display: none;
+               }
+               .textTitle {
+                  font-size: 25px;
+                  line-height: 25px;
+               }
+            }
+         }
+      }
+   }
+}
+
+@media (max-width: 460px) {
+   .main-cart {
+      .main-cart__content {
+         .main-cart__top {
+            margin-bottom: 70px;
+         }
+
+         .main-cart__bottom {
+            // display: none;
+            .main-cart__info {
+               display: flex;
+               justify-content: space-between;
+               flex-direction: column;
+               margin-bottom: 30px;
+               .main-cart__total-products {
+                  font-family: "Proxima-Nova";
+                  font-size: 22px;
+                  margin-bottom: 15px;
+                  span {
+                     font-weight: 700;
+                  }
+               }
+               .main-cart__total-price {
+                  font-family: "Proxima-Nova";
+                  font-size: 22px;
+                  span {
+                     font-weight: 700;
+                     color: #fe5f1e;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

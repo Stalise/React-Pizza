@@ -1,32 +1,26 @@
 import { FC, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import './Layout.scss';
+import styles from './Layout.module.scss'
 import { products } from 'api/api';
-import { useAppDispatch, useAppSelector } from "hooks/redux";
-import { IPizza } from 'types/typesPizza';
+import { useAppDispatch } from "hooks/redux";
 
-import Header from 'components/Layout/Header';
+import Header from 'components/Layout/Header/Header';
 
 const Layout: FC = () => {
 
-   const { pizzas }: { pizzas: IPizza[] } = useAppSelector(state => state.productsSlice)
    const dispatch = useAppDispatch()
 
    // при отрисовке outlet компонента проверять, получили ли уже пиццы с сервера.
    useEffect(() => {
-      if (pizzas.length === 0) {
-         dispatch(products.getProducts())
-      }
+      dispatch(products.getProducts())
    }, [])
 
    return (
-      <div className='wrapper'>
+      <div className={styles.wrapper}>
          <Header />
 
-         <div className="main">
-            <Outlet />
-         </div>
+         <Outlet />
       </div>
    );
 }

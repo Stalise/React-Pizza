@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import GeneralLayout from '../pages/Layout/Layout';
-import MainPage from '../pages/MainPage/MainPage';
-import CartPage from '../pages/CartPage/CartPage';
-import AuthorizationPage from '../pages/AuthorizationPage/AuthorizationPage';
-import { useAppSelector } from '../hooks/redux';
+
+import { useAppSelector } from 'hooks/redux';
+
+import GeneralLayout from 'pages/Layout/Layout';
+import MainPage from 'pages/MainPage/MainPage';
+import CartPage from 'pages/CartPage/CartPage';
+import AuthorizationPage from 'pages/AuthorizationPage/AuthorizationPage';
+
 
 const AppRoutes: FC = () => {
 
@@ -15,10 +18,9 @@ const AppRoutes: FC = () => {
          <Route path='/' element={<GeneralLayout />}>
             <Route index element={<MainPage />} />
             <Route path='/cart' element={<CartPage />} />
+            {!autho && <Route path='/autho' element={<AuthorizationPage />} />}
             <Route path='*' element={<MainPage />} />
          </Route>
-
-         {autho === false ? <Route path='/autho' element={<AuthorizationPage />} /> : null}
       </Routes >
    );
 }

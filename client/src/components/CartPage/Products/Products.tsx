@@ -1,5 +1,7 @@
 import { FC } from "react";
-import { useAppSelector } from "../../hooks/redux";
+
+import s from './Products.module.scss'
+import { useAppSelector } from "hooks/redux";
 
 import CartItem from "./CartItem/CartItem";
 
@@ -8,7 +10,7 @@ const Products: FC = () => {
    const { cartItems } = useAppSelector(state => state.cartSlice)
 
    return (
-      <div className="main-cart__products">
+      <div className={s.products}>
          {
             cartItems.map(item => {
                return (

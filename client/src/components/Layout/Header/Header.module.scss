@@ -1,14 +1,3 @@
-.wrapper {
-   min-height: 100vh;
-   width: 100%;
-   overflow: hidden;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   background-color: #ffdf8c;
-   padding: 30px 10px 40px 10px;
-}
-
 .header {
    max-width: 1340px;
    width: 100%;
@@ -20,7 +9,7 @@
    align-items: center;
    padding: 0 15px;
    margin-bottom: 30px;
-   &__login {
+   .login {
       font-size: 20px;
       padding: 6px 15px;
       background-color: #e8e6e6;
@@ -30,6 +19,7 @@
       border-radius: 15px;
       transition: all 0.3s;
       cursor: pointer;
+
       &:hover {
          color: #000;
          background-color: #ccc;
@@ -38,15 +28,14 @@
          transform: translateY(5px);
       }
    }
-   &__logo {
+   .logo {
       display: flex;
-      .header__img {
+      .logoImage {
          margin-right: 15px;
          object-fit: contain;
       }
-      .header__logo-text {
-         // border: 1px solid black;
-         .header__title {
+      .logoText {
+         .logoTitle {
             font-family: "Proxima-Nova";
             font-weight: 700;
             font-size: 25px;
@@ -57,14 +46,14 @@
             -webkit-text-stroke-width: 0.4px;
             color: black;
          }
-         .header__subtitle {
+         .logoSubtitle {
             color: #7b7b7b;
             font-size: 16px;
             letter-spacing: 0.1px;
          }
       }
    }
-   &__cart {
+   .cart {
       background-color: #fe5f1e;
       border-radius: 50px;
       position: relative;
@@ -77,7 +66,7 @@
          transform: translateY(-5px);
       }
 
-      .header__cart-icon {
+      .cartIcon {
          position: absolute;
          top: 12px;
          left: 13px;
@@ -85,7 +74,7 @@
          stroke: #fff;
       }
 
-      &-number {
+      .cartNumber {
          display: inline-block;
          padding: 13px 12px 12px 40px;
          color: #fff;
@@ -97,19 +86,16 @@
 }
 
 @media (max-width: 550px) {
-   .wrapper {
-      padding: 15px 10px 15px 10px;
-   }
    .header {
       height: 70px;
       padding: 0 10px;
-      &__login {
+      .login {
          max-width: 45px;
          height: 45px;
          padding: 0;
          color: transparent;
-         // border: 1px solid red;
          position: relative;
+
          &:hover {
             color: transparent;
          }
@@ -126,15 +112,15 @@
             font-size: 25px;
          }
       }
-      &__logo {
+      .logo {
          display: flex;
-         .header__img {
+         .logoImages {
             margin-right: 15px;
             object-fit: contain;
          }
-         .header__logo-text {
+         .logoText {
             max-width: 70px;
-            .header__title {
+            .logoTitle {
                font-family: "Proxima-Nova";
                font-weight: 700;
                font-size: 22px;
@@ -147,7 +133,7 @@
                line-height: 24px;
                margin-top: 5px;
             }
-            .header__subtitle {
+            .logoSubtitle {
                display: none;
             }
          }

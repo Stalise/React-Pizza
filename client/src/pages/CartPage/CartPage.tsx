@@ -1,12 +1,12 @@
 import { FC } from "react";
 
-import './CartPage.scss';
+import s from './CartPage.module.scss';
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { cartSlice } from "store/CartSlice/CartSlice";
 
-import Products from "components/CartPage/Products";
-import Total from "components/CartPage/Total";
-import Empty from "components/CartPage/Empty";
+import Products from "components/CartPage/Products/Products";
+import Total from "components/CartPage/Total/Total";
+import Empty from "components/CartPage/Empty/Empty";
 
 const CartPage: FC = () => {
 
@@ -15,27 +15,29 @@ const CartPage: FC = () => {
    const dispatch = useAppDispatch()
 
    return (
-      <div className="main-cart">
-         {
-            cartItems.length
-               ?
-               <div className="main-cart__content">
-                  <div className="main-cart__top">
-                     <div className="main-cart__title">
-                        <img src="./images/cart-icon-big.png" className="main-cart__title-icon" alt='cart' />
-                        <h1 className="main-cart__title-text">Корзина</h1>
+      <div className={s.main}>
+         <div className={s.cart}>
+            {
+               cartItems.length
+                  ?
+                  <div className={s.content}>
+                     <div className={s.contentTop}>
+                        <div className={s.text}>
+                           <img src="./images/cart-icon-big.png" className={s.textIcon} alt='cart' />
+                           <h1 className={s.textTitle}>Корзина</h1>
+                        </div>
+
+                        <p onClick={() => dispatch(deleteAllAction())} className={s.clear}>Очистить корзину</p>
                      </div>
 
-                     <p onClick={() => dispatch(deleteAllAction())} className="main-cart__clear">Очистить корзину</p>
+                     <Products />
+
+                     <Total />
                   </div>
-
-                  <Products />
-
-                  <Total />
-               </div>
-               :
-               <Empty />
-         }
+                  :
+                  <Empty />
+            }
+         </div>
       </div>
    );
 }

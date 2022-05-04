@@ -45,8 +45,6 @@ export const removeItem = (id: string, dispatch: any) => {
 
 export const cartTotal = (cartItems: IPizzaCart[]): ITotalCartReturn => {
 
-   console.log('check')
-
    const totalValue = cartItems.reduce((accum, item) => {
       return accum += item.totalCount
    }, 0)

@@ -1,12 +1,13 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import './AuthorizationPage.scss';
+import s from './AuthorizationPage.module.scss';
+import { KeyType } from 'types/keyType';
 
-import AuthorizationForm from 'components/AuthorizationPage/AuthorizationForm';
-import RegisterForm from 'components/AuthorizationPage/RegisterForm';
+import AuthorizationForm from 'components/AuthorizationPage/AuthorizationForm/AuthorizationForm';
+import RegisterForm from 'components/AuthorizationPage/RegisterForm/RegisterForm';
 
-interface ITabs {
+interface ITabs extends KeyType<boolean> {
    register: boolean,
    auth: boolean,
 }
@@ -21,20 +22,11 @@ const AuthorizationPage: FC = () => {
       auth: false,
    })
 
-   // логика кнопок-табов для переключения между регистр и авториз
-   const tabsHandler = (elem: string): void => {
-      let tabsFake = { ...tabsState }
-      let tabsKeys = Object.keys(tabsFake);
+   const tabsHandler = (tab: string): void => {
+      const tabsFake: ITabs = { register: false, auth: false }
+      tabsFake[tab] = true
 
-      tabsKeys.forEach((e: string) => {
-         if (e === elem) {
-            tabsFake[e as keyof typeof tabsFake] = true
-         } else {
-            tabsFake[e as keyof typeof tabsFake] = false
-         }
-      })
-
-      tabsStateHandler({ ...tabsFake })
+      tabsStateHandler(tabsFake)
    }
 
    useEffect(() => {
@@ -42,32 +34,32 @@ const AuthorizationPage: FC = () => {
    }, [])
 
    return (
-      <div className='wrapper'>
-         <div className="entry">
-            <div className="entry__container">
-               <div className="entry__introduction entry-introduction">
+      <div className={s.main}>
+         <div className={s.entry}>
+            <div className={s.entryContainer}>
+               <div className={s.introduction}>
                   <Link to={'/'}>
-                     <div className="entry-introduction__logo">
-                        <div className="entry-introduction__logo-icon">
-                           <img src="./images/pizza-peace.png" className='entry-introduction__logo-img' alt="logo-pizza" />
+                     <div className={s.logo}>
+                        <div className={s.logoImageContainer}>
+                           <img src="./images/pizza-peace.png" className={s.logoImage} alt="logo-pizza" />
                         </div>
-                        <p className="entry-introduction__logo-text">React Pizza</p>
+                        <p className={s.logoText}>React Pizza</p>
                      </div>
                   </Link>
                </div>
 
-               <div className="entry__buttons">
-                  <button className="entry__register" onClick={() => tabsHandler('register')}>Register</button>
-                  <button className="entry__sign-in" onClick={() => tabsHandler('auth')}>Sign in</button>
+               <div className={s.buttons}>
+                  <button className={s.register} onClick={() => tabsHandler('register')}>Register</button>
+                  <button className={s["sign-in"]} onClick={() => tabsHandler('auth')}>Sign in</button>
                </div>
 
-               <div className="entry__form-container">
+               <div className={s.forms}>
                   <RegisterForm
-                     tabsState={tabsState.register}
+                     tabStatus={tabsState.register}
                   />
 
                   <AuthorizationForm
-                     tabsState={tabsState.auth}
+                     tabStatus={tabsState.auth}
                   />
                </div>
             </div>

@@ -1,12 +1,14 @@
 import { FC, useEffect } from "react";
 
+import s from "./Filter.module.scss";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { sorted } from 'utils/pizzaActions';
 import { filterItems } from 'constants/filter';
 import { productsSlice } from "store/ProductsSlice/ProductsSlice";
+import { IPizza } from 'types/typesPizza';
 
 interface IProps {
-   setSortedPizza: ([]) => void,
+   setSortedPizza: (data: IPizza[]) => void,
 }
 
 const Filter: FC<IProps> = ({ setSortedPizza }) => {
@@ -24,12 +26,12 @@ const Filter: FC<IProps> = ({ setSortedPizza }) => {
    }, [filter])
 
    return (
-      <div className="main-pizza__filter">
+      <div className={s.filter}>
          {filterItems.map(elem => {
             return (
                <button
                   type="button"
-                  className={`main-pizza__filter-button ${filter === elem.type && '_active'}`}
+                  className={`${s.filterButton} ${filter === elem.type && s._active}`}
                   onClick={() => changeFilterHandler(elem.type)}
                   key={elem.type}
                >

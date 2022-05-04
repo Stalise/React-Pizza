@@ -1,18 +1,13 @@
 import { FC } from "react";
 import { useForm } from 'react-hook-form';
 
+import s from './RegisterForm.module.scss';
 import { user } from "api/api";
 import { useAppDispatch } from "hooks/redux";
 import { userSlice } from "store/UserSlice/UserSlice";
 
 interface IProps {
-   tabsState: boolean,
-}
-
-enum classNames {
-   form = 'entry__form-register form-register',
-   _active = ' _active',
-   formError = 'form-register__error'
+   tabStatus: boolean,
 }
 
 interface IFormData {
@@ -20,7 +15,7 @@ interface IFormData {
    password: string
 }
 
-const RegisterForm: FC<IProps> = ({ tabsState }) => {
+const RegisterForm: FC<IProps> = ({ tabStatus }) => {
 
    const dispatch = useAppDispatch()
 
@@ -28,7 +23,7 @@ const RegisterForm: FC<IProps> = ({ tabsState }) => {
       register,
       formState: { errors },
       handleSubmit,
-   } = useForm<IFormData>({ mode: "onChange" });
+   } = useForm<IFormData>({ mode: "onBlur" });
 
    const onSubmit = async (data: IFormData) => {
 
@@ -39,8 +34,9 @@ const RegisterForm: FC<IProps> = ({ tabsState }) => {
    }
 
    return (
-      <form onSubmit={handleSubmit(onSubmit)} className={tabsState ? classNames.form + classNames._active : classNames.form}>
-         <label className='form-register__label'>
+      <form onSubmit={handleSubmit(onSubmit)} className={`${s.form} ${tabStatus && s._active}`}>
+
+         <label className={s.container}>
             Email
             <input
                {...register('email', {
@@ -50,14 +46,14 @@ const RegisterForm: FC<IProps> = ({ tabsState }) => {
                      message: "Некорректный email."
                   },
                })}
-               className='form-register__input' type="text" placeholder="Example: example22@gmail.com"
+               className={s.field} type="text" placeholder="Example: example22@gmail.com"
             />
-            <p className={errors?.email ? classNames.formError + classNames._active : classNames.formError}>
+            <p className={`${s.error} ${errors.email && s._active}`}>
                {errors?.email?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
 
-         <label className='form-register__label'>
+         <label className={s.container}>
             Password
             <input
                {...register('password', {
@@ -66,14 +62,14 @@ const RegisterForm: FC<IProps> = ({ tabsState }) => {
                   minLength: { value: 6, message: "Минимум 6 символов" },
                   maxLength: { value: 10, message: "Максимум 10 символов" }
                })}
-               className='form-register__input' type="password" placeholder="Example: bend12AW"
+               className={s.field} type="password" placeholder="Example: bend12AW"
             />
-            <p className={errors?.password ? classNames.formError + classNames._active : classNames.formError}>
+            <p className={`${s.error} ${errors.password && s._active}`}>
                {errors?.password?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
 
-         <button type='submit' className="form-register__button-submit">REGISTRATION</button>
+         <button type='submit' className={s.submit}>REGISTRATION</button>
       </form>
    );
 }

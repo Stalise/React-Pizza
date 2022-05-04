@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import './Loader.scss';
+import s from './Loader.module.scss';
 
 const Loader: FC = () => {
 
    return (
-      <div className="spinner__container">
-         <img src="./images/pizza_loader.gif" className="spinner__gif" alt="pizza_loader" />
+      <div className={s.container}>
+         <img src="./images/pizza_loader.gif" className={s.image} alt="pizza_loader" />
       </div>
    );
 }

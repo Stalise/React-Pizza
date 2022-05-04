@@ -1,15 +1,10 @@
 import { FC } from "react";
 import { useForm } from 'react-hook-form';
 
+import s from './AuthorizationForm.module.scss';
 
 interface IProps {
-   tabsState: boolean,
-}
-
-enum classNames {
-   form = "entry__form-authorize form-authorize",
-   _active = ' _active',
-   formError = 'form-authorize__error'
+   tabStatus: boolean,
 }
 
 interface IFormData {
@@ -17,7 +12,7 @@ interface IFormData {
    password: string
 }
 
-const AuthorizationForm: FC<IProps> = ({ tabsState }) => {
+const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
 
    const {
       register,
@@ -55,8 +50,9 @@ const AuthorizationForm: FC<IProps> = ({ tabsState }) => {
    }
 
    return (
-      <form onSubmit={handleSubmit(onSubmit)} className={tabsState ? classNames.form + classNames._active : classNames.form}>
-         <label className='form-authorize__label'>
+      <form onSubmit={handleSubmit(onSubmit)} className={`${s.form} ${tabStatus && s._active}`}>
+
+         <label className={s.container}>
             Email
             <input
                {...register('email', {
@@ -66,14 +62,14 @@ const AuthorizationForm: FC<IProps> = ({ tabsState }) => {
                      message: "Некорректный email.",
                   },
                })}
-               className='form-authorize__input' type="text" placeholder="Your email"
+               className={s.field} type="text" placeholder="Your email"
             />
-            <p className={errors?.email ? classNames.formError + classNames._active : classNames.formError}>
+            <p className={`${s.error} ${errors.email && s._active}`}>
                {errors?.email?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
 
-         <label className='form-authorize__label'>
+         <label className={s.container}>
             Password
             <input
                {...register('password', {
@@ -82,14 +78,14 @@ const AuthorizationForm: FC<IProps> = ({ tabsState }) => {
                   minLength: { value: 6, message: "Минимум 6 символов" },
                   maxLength: { value: 10, message: "Максимум 10 символов" }
                })}
-               className='form-authorize__input' type="password" placeholder="Your password"
+               className={s.field} type="password" placeholder="Your password"
             />
-            <p className={errors?.password ? classNames.formError + classNames._active : classNames.formError}>
+            <p className={`${s.error} ${errors.password && s._active}`}>
                {errors?.password?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
 
-         <button type='submit' className="form-authorize__button-submit" >AUTHORIZATION</button>
+         <button type='submit' className={s.submit} >AUTHORIZATION</button>
       </form>
    );
 }
