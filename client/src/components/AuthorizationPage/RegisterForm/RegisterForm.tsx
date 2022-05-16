@@ -2,9 +2,8 @@ import { FC } from "react";
 import { useForm } from 'react-hook-form';
 
 import s from './RegisterForm.module.scss';
-import { user } from "api/api";
-import { useAppDispatch } from "hooks/redux";
-import { userSlice } from "store/UserSlice/UserSlice";
+import { useAppDispatch, useAppSelector } from "hooks/redux";
+import { createUserThunk } from 'store/UserSlice/actions';
 
 interface IProps {
    tabStatus: boolean,
@@ -17,6 +16,7 @@ interface IFormData {
 
 const RegisterForm: FC<IProps> = ({ tabStatus }) => {
 
+   const { status } = useAppSelector(state => state.userSlice)
    const dispatch = useAppDispatch()
 
    const {
@@ -26,11 +26,7 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
    } = useForm<IFormData>({ mode: "onBlur" });
 
    const onSubmit = async (data: IFormData) => {
-
-      await dispatch(user.createUser(data))
-
-      // меняем стейт в userSlice, чтобы показать приложению что пользователь авторизован
-      // if (request.data === Boolean) { dispatch(changeAutho(request.payload)) }
+      dispatch(createUserThunk(data))
    }
 
    return (
@@ -46,8 +42,9 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
                      message: "Некорректный email."
                   },
                })}
-               className={s.field} type="text" placeholder="Example: example22@gmail.com"
+               className={s.field} type="email" placeholder="Example: example22@gmail.com"
             />
+
             <p className={`${s.error} ${errors.email && s._active}`}>
                {errors?.email?.message || 'Обязательное поле для ввода.'}
             </p>
@@ -64,12 +61,13 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
                })}
                className={s.field} type="password" placeholder="Example: bend12AW"
             />
+
             <p className={`${s.error} ${errors.password && s._active}`}>
                {errors?.password?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
 
-         <button type='submit' className={s.submit}>REGISTRATION</button>
+         <button className={`${s.submit} ${status === 'reg' && s._auth}`} type='submit'>REGISTRATION</button>
       </form>
    );
 }

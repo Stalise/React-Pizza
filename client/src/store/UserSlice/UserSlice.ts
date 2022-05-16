@@ -1,38 +1,64 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { user } from '../../api/api';
 
-interface IUserSlice {
-   autho: boolean,
-   status: string
-}
+import { checkAuthThunk, authUserThunk, createUserThunk, logoutUserThunk } from './actions';
+import { IState, IChangeAuthPayload } from './types';
 
-const initialState: IUserSlice = {
+const initialState: IState = {
    autho: false,
-   status: 'pending'
+   status: 'ready',
 }
 
 export const userSlice = createSlice({
    name: 'user',
    initialState,
    reducers: {
-      changeAutho(state: IUserSlice, action: PayloadAction<boolean>) {
-         state.autho = action.payload
-         state.status = 'ready'
+      changeAutho(state, action: PayloadAction<IChangeAuthPayload>) {
+         state.autho = action.payload.isAuth
+         state.status = action.payload.status
       },
    },
-   extraReducers: {
-      [String(user.createUser.pending)]: (state: IUserSlice) => {
-         state.status = 'pending'
-      },
-      [String(user.createUser.fulfilled)]: (state: IUserSlice, action: PayloadAction<any>) => {
-         state.status = action.payload
-         state.status = 'ready'
-      },
-      [String(user.createUser.rejected)]: (state: IUserSlice, action) => {
-         alert(action.payload.message)
-         state.status = 'ready'
-      },
-   }
+   extraReducers: (builder) => {
+      builder
+         .addCase(checkAuthThunk.pending, (state) => {
+            state.status = 'pending'
+         })
+         .addCase(checkAuthThunk.fulfilled, (state, { payload }) => {
+            if (typeof (payload) === "boolean") {
+               state.autho = payload
+            }
+            state.status = 'ready'
+         })
+         /***********************************************************/
+         .addCase(authUserThunk.pending, (state) => {
+            state.status = 'auth'
+         })
+         .addCase(authUserThunk.fulfilled, (state, { payload }) => {
+            if (typeof (payload) === "boolean") {
+               state.autho = payload
+            }
+            state.status = 'ready'
+         })
+         /***********************************************************/
+         .addCase(createUserThunk.pending, (state) => {
+            state.status = 'reg'
+         })
+         .addCase(createUserThunk.fulfilled, (state, { payload }) => {
+            if (typeof (payload) === "boolean") {
+               state.autho = payload
+            }
+            state.status = 'ready'
+         })
+         /***********************************************************/
+         .addCase(logoutUserThunk.pending, (state) => {
+            state.status = 'pending'
+         })
+         .addCase(logoutUserThunk.fulfilled, (state, { payload }) => {
+            if (typeof (payload) === "boolean") {
+               state.autho = payload
+            }
+            state.status = 'ready'
+         })
+   },
 })
 
 export default userSlice.reducer;

@@ -1,10 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
-import { IPizza } from "../types/typesPizza";
+import { Urls } from "constants/api";
+import { AuthResponses } from "constants/api";
+import { defaultToast } from "constants/toastSettings";
+import { IPizza } from "types/typesPizza";
+import { IUserData } from "types/api";
 
 const instance = axios.create({
-   baseURL: 'http://localhost:8000/api/',
+   baseURL: Urls.base_url,
    withCredentials: true,
 });
 
@@ -14,7 +19,7 @@ export const products = {
       'products/requestProducts',
       async (_, { rejectWithValue }) => {
          try {
-            const request = await instance.get<IPizza[]>('product')
+            const request = await instance.get<IPizza[]>(Urls.product)
             return request.data
 
          } catch (error) {
@@ -25,31 +30,75 @@ export const products = {
 }
 
 export const user = {
-
-   checkAuthorize: async () => {
+   checkAuth: async () => {
       try {
-         const request = await instance.get('user', { withCredentials: true })
-         return request.data
-      } catch (error) {
+         const response = await instance.get(Urls.user);
 
+         if (response.status >= 200 && response.status < 300) {
+            return response.data.message
+         }
+      } catch (error: any) {
+         if (error.response.status === 401) {
+            return error.response.data.message
+         }
+
+         return AuthResponses.unexpected
       }
    },
 
-   createUser: createAsyncThunk(
-      'user/createUser',
-      async (data: { email: string, password: string }, { rejectWithValue }) => {
-         try {
+   authUser: async (data: IUserData) => {
+      try {
+         const response = await instance.post(Urls.userAuth, { ...data }, {
+            headers: { 'Content-Type': 'application/json;charset=utf-8' },
+         })
 
-            const request = await instance.post<boolean>('user/reg', { ...data }, {
-               headers: { 'Content-Type': 'application/json;charset=utf-8' },
-            })
-
-            // передаем ответ от сервера, зарегистрирован ли пользователь (boolean), чтобы прокинуть в dispatch
-            return request.data
-         } catch (error: any) {
-            console.log(error)
-            return rejectWithValue(error.response?.data)
+         if (response.status >= 200 && response.status < 300) {
+            return response.data.message
+         } else if (response.status === 500) {
+            toast.warn(response.data.message, defaultToast)
+            return response.data.message
          }
+      } catch (error: any) {
+         if (error.response.status === 401) {
+            toast.warn(error.response.data.message, defaultToast)
+            return error.response.data.message
+         }
+
+         return AuthResponses.unexpected
       }
-   )
+   },
+
+   createUser: async (data: IUserData) => {
+      try {
+         const response = await instance.post(Urls.userReg, { ...data }, {
+            headers: { 'Content-Type': 'application/json;charset=utf-8' },
+         })
+
+         if (response.status >= 200 && response.status < 300) {
+            return response.data.message
+         } else if (response.status === 500) {
+            toast.warn(response.data.message, defaultToast)
+            return response.data.message
+         }
+      } catch (error: any) {
+         if (error.response.status === 401) {
+            toast.warn(error.response.data.message, defaultToast)
+            return error.response.data.message
+         }
+
+         return AuthResponses.unexpected
+      }
+   },
+
+   logoutUser: async () => {
+      try {
+         const response = await instance.get(Urls.userLogout);
+
+         if (response.status >= 200 && response.status < 300) {
+            return response.data.message
+         }
+      } catch (error: any) {
+         return AuthResponses.unexpected
+      }
+   }
 }

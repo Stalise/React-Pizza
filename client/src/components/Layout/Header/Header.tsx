@@ -6,11 +6,12 @@ import { svgIcons } from "constants/svgIcons";
 import { useAppSelector } from "hooks/redux";
 import { getTotalOrder } from "utils/CartTotalOrder";
 
+import AuthButton from './AuthButton/AuthButton';
+
 
 const Header: FC = () => {
 
    const { cartItems } = useAppSelector(state => state.cartSlice)
-   const { autho } = useAppSelector(state => state.userSlice)
 
    const [totalItems, setTotalItems] = useState<number>(0)
 
@@ -21,7 +22,7 @@ const Header: FC = () => {
 
    return (
       <header className={s.header}>
-         <Link to={'/autho'} className={s.login}>{autho === false ? 'Войти' : 'Выйти'}</Link>
+         <AuthButton />
 
          <Link to="/" className={s.logo}>
             <img src='./images/pizza-peace.png' className={s.logoImage} alt="pizza-logo" />
