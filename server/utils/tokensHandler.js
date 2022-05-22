@@ -33,15 +33,17 @@ const TokensHandler = {
    validateRefreshToken: async (token) => {
       try {
          const decoded = jwt.decode(token)
-         const userEmail = decoded.email
+         const email = decoded.email
 
-         const getRefresh = await db.query(`SELECT token FROM person WHERE email = $1`, [userEmail])
+         const getRefresh = await db.query(`SELECT token FROM person WHERE email = $1`, [email])
 
          if (!getRefresh.rows.length) return jwtMessages.needAuth
 
          const refreshToken = getRefresh.rows[0].token
 
-         jwt.verify(refreshToken, process.env.SECRET_REFRESH_JWT);
+         const verifyRefresh = jwt.verify(refreshToken, process.env.SECRET_REFRESH_JWT);
+
+         console.log(verifyRefresh)
 
          return jwtMessages.success
       } catch (error) {

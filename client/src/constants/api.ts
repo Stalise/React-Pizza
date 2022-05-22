@@ -7,10 +7,8 @@ export enum Urls {
    product = "product",
 }
 
-export enum AuthResponses {
+export enum fetchResponses {
    success = "success",
    notLogged = "Not logged",
-   wrongEmail = "Пользователя с таким email не существует.",
-   wrongPassword = "Введён неверный пароль.",
    unexpected = "Unexpected error",
 };

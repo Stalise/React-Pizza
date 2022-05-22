@@ -11,14 +11,14 @@ import AuthorizationPage from 'pages/AuthorizationPage/AuthorizationPage';
 
 const AppRoutes: FC = () => {
 
-   const { autho } = useAppSelector(state => state.userSlice)
+   const { isAuth } = useAppSelector(state => state.userSlice)
 
    return (
       <Routes>
          <Route path='/' element={<Layout />}>
             <Route index element={<MainPage />} />
             <Route path='/cart' element={<CartPage />} />
-            {!autho && <Route path='/autho' element={<AuthorizationPage />} />}
+            {!isAuth && <Route path='/auth' element={<AuthorizationPage />} />}
             <Route path='*' element={<MainPage />} />
          </Route>
       </Routes >

@@ -82,10 +82,10 @@ class UserController {
    async logoutUser(req, res) {
       try {
          const decoded = jwt.decode(req.cookies?.token)
-         const userEmail = decoded.email
+         const email = decoded.email
 
          res.clearCookie("token");
-         await db.query(`UPDATE person SET token = '' WHERE email = $1`, [userEmail])
+         await db.query(`UPDATE person SET token = '' WHERE email = $1`, [email])
 
          res.status(200).json({ message: jwtMessages.success })
       } catch (error) {

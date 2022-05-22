@@ -7,18 +7,18 @@ import { logoutUserThunk } from 'store/UserSlice/actions';
 
 const AuthButton: FC = () => {
 
-   const { autho } = useAppSelector(state => state.userSlice)
+   const { isAuth } = useAppSelector(state => state.userSlice)
    const dispatch = useAppDispatch()
 
    const logoutHandler = () => {
-      if (autho === true) {
+      if (isAuth === true) {
          dispatch(logoutUserThunk())
       }
    }
 
    return (
-      <Link to={'/autho'} onClick={logoutHandler} className={s.login}>
-         {autho === false ? 'Войти' : 'Выйти'}
+      <Link to={'/auth'} onClick={logoutHandler} className={s.login}>
+         {isAuth === false ? 'Войти' : 'Выйти'}
       </Link>
    );
 }

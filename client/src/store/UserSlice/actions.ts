@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from 'react-toastify';
 
 import { user } from 'api/api';
-import { AuthResponses } from "constants/api";
+import { fetchResponses } from "constants/api";
 import { IUserData } from "types/api";
 
 export const checkAuthThunk = createAsyncThunk(
@@ -10,7 +10,7 @@ export const checkAuthThunk = createAsyncThunk(
    async () => {
       const response: string = await user.checkAuth()
 
-      if (response === AuthResponses.success) {
+      if (response === fetchResponses.success) {
          return true
       } else {
          return false
@@ -23,7 +23,7 @@ export const authUserThunk = createAsyncThunk(
    async (data: IUserData) => {
       const response: string = await user.authUser(data)
 
-      if (response === AuthResponses.success) {
+      if (response === fetchResponses.success) {
          return true
       } else {
          return false
@@ -36,7 +36,7 @@ export const createUserThunk = createAsyncThunk(
    async (data: IUserData) => {
       const response: string = await user.createUser(data)
 
-      if (response === AuthResponses.success) {
+      if (response === fetchResponses.success) {
          return true
       } else {
          return false
@@ -49,7 +49,7 @@ export const logoutUserThunk = createAsyncThunk(
    async () => {
       const response: string = await user.logoutUser()
 
-      if (response === AuthResponses.success) {
+      if (response === fetchResponses.success) {
          return false
       } else {
          return false

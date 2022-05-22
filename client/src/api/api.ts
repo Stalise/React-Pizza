@@ -3,8 +3,8 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 
 import { Urls } from "constants/api";
-import { AuthResponses } from "constants/api";
-import { defaultToast } from "constants/toastSettings";
+import { fetchResponses } from "constants/api";
+import { defaultToast } from "constants/toast";
 import { IPizza } from "types/typesPizza";
 import { IUserData } from "types/api";
 
@@ -42,7 +42,7 @@ export const user = {
             return error.response.data.message
          }
 
-         return AuthResponses.unexpected
+         return fetchResponses.unexpected
       }
    },
 
@@ -64,7 +64,7 @@ export const user = {
             return error.response.data.message
          }
 
-         return AuthResponses.unexpected
+         return fetchResponses.unexpected
       }
    },
 
@@ -86,7 +86,7 @@ export const user = {
             return error.response.data.message
          }
 
-         return AuthResponses.unexpected
+         return fetchResponses.unexpected
       }
    },
 
@@ -98,7 +98,7 @@ export const user = {
             return response.data.message
          }
       } catch (error: any) {
-         return AuthResponses.unexpected
+         return fetchResponses.unexpected
       }
    }
 }

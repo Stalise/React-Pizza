@@ -1,5 +1,5 @@
 export interface IState {
-   autho: boolean,
+   isAuth: boolean,
    status: string
 }
 

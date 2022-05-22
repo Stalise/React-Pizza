@@ -4,6 +4,7 @@ const jwtMessages = require('../constants/jwt');
 const TokensHandler = require('../utils/tokensHandler')
 
 module.exports = async function (req, res, next) {
+
    try {
       if (!req.cookies?.token) {
          console.log('access token missin')
@@ -19,13 +20,13 @@ module.exports = async function (req, res, next) {
       if (checkAccess === jwtMessages.timeExpired) {
          console.log('update tok')
          const decoded = jwt.decode(req.cookies?.token)
-         const userEmail = decoded.email
+         const email = decoded.email
 
-         const jwtAccess = TokensHandler.generateAccessToken({ userEmail })
+         const jwtAccess = TokensHandler.generateAccessToken({ email })
          res.cookie('token', jwtAccess, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
       }
 
-      const checkRefresh = await TokensHandler.validateRefreshToken(req.cookies.token)
+      const checkRefresh = await TokensHandler.validateRefreshToken(req.cookies?.token)
 
       if (checkRefresh === jwtMessages.needAuth) {
          console.log('refresh token missin')

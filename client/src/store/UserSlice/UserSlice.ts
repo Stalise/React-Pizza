@@ -4,7 +4,7 @@ import { checkAuthThunk, authUserThunk, createUserThunk, logoutUserThunk } from 
 import { IState, IChangeAuthPayload } from './types';
 
 const initialState: IState = {
-   autho: false,
+   isAuth: false,
    status: 'ready',
 }
 
@@ -13,7 +13,7 @@ export const userSlice = createSlice({
    initialState,
    reducers: {
       changeAutho(state, action: PayloadAction<IChangeAuthPayload>) {
-         state.autho = action.payload.isAuth
+         state.isAuth = action.payload.isAuth
          state.status = action.payload.status
       },
    },
@@ -24,7 +24,7 @@ export const userSlice = createSlice({
          })
          .addCase(checkAuthThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.autho = payload
+               state.isAuth = payload
             }
             state.status = 'ready'
          })
@@ -34,7 +34,7 @@ export const userSlice = createSlice({
          })
          .addCase(authUserThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.autho = payload
+               state.isAuth = payload
             }
             state.status = 'ready'
          })
@@ -44,7 +44,7 @@ export const userSlice = createSlice({
          })
          .addCase(createUserThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.autho = payload
+               state.isAuth = payload
             }
             state.status = 'ready'
          })
@@ -54,7 +54,7 @@ export const userSlice = createSlice({
          })
          .addCase(logoutUserThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.autho = payload
+               state.isAuth = payload
             }
             state.status = 'ready'
          })

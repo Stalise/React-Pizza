@@ -33,7 +33,7 @@ const Layout: FC = () => {
             </>
          }
 
-         <ToastContainer />
+         <ToastContainer limit={3} />
       </div>
    );
 }
