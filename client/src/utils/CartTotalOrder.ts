@@ -9,12 +9,12 @@ interface IReturn {
 export const getTotalOrder = (cartItems: IPizzaCart[]): IReturn => {
 
    const totalValue = cartItems.reduce((accum, item) => {
-      return accum += item.totalCount
-   }, 0)
+      return accum += item.totalCount;
+   }, 0);
 
    const totalCost = cartItems.reduce((accum, item) => {
-      return accum += item.totalCost
-   }, 0)
+      return accum += item.totalCost;
+   }, 0);
 
-   return { totalValue, totalCost }
-}
+   return { totalValue, totalCost };
+};

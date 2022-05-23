@@ -10,9 +10,9 @@ import Empty from "components/CartPage/Empty/Empty";
 
 const CartPage: FC = () => {
 
-   const { cartItems } = useAppSelector(state => state.cartSlice)
-   const { deleteAllAction } = cartSlice.actions
-   const dispatch = useAppDispatch()
+   const { cartItems } = useAppSelector(state => state.cartSlice);
+   const { deleteAllAction } = cartSlice.actions;
+   const dispatch = useAppDispatch();
 
    return (
       <div className={s.main}>
@@ -23,7 +23,7 @@ const CartPage: FC = () => {
                   <div className={s.content}>
                      <div className={s.contentTop}>
                         <div className={s.text}>
-                           <img src="./images/cart-icon-big.png" className={s.textIcon} alt='cart' />
+                           <img src="./images/cart-icon-big.png" className={s.textIcon} alt="cart" />
                            <h1 className={s.textTitle}>Корзина</h1>
                         </div>
 
@@ -40,6 +40,6 @@ const CartPage: FC = () => {
          </div>
       </div>
    );
-}
+};
 
 export default CartPage;

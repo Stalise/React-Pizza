@@ -9,6 +9,6 @@ const Loader: FC = () => {
          <img src="./images/pizza_loader.gif" className={s.image} alt="pizza_loader" />
       </div>
    );
-}
+};
 
 export default Loader;

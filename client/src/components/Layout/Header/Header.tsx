@@ -11,21 +11,21 @@ import AuthButton from './AuthButton/AuthButton';
 
 const Header: FC = () => {
 
-   const { cartItems } = useAppSelector(state => state.cartSlice)
+   const { cartItems } = useAppSelector(state => state.cartSlice);
 
-   const [totalItems, setTotalItems] = useState<number>(0)
+   const [totalItems, setTotalItems] = useState<number>(0);
 
    useEffect(() => {
-      const { totalValue } = getTotalOrder(cartItems)
-      setTotalItems(totalValue)
-   }, [cartItems])
+      const { totalValue } = getTotalOrder(cartItems);
+      setTotalItems(totalValue);
+   }, [cartItems]);
 
    return (
       <header className={s.header}>
          <AuthButton />
 
          <Link to="/" className={s.logo}>
-            <img src='./images/pizza-peace.png' className={s.logoImage} alt="pizza-logo" />
+            <img src="./images/pizza-peace.png" className={s.logoImage} alt="pizza-logo" />
 
             <div className={s.logoText}>
                <p className={s.logoTitle}>REACT PIZZA</p>
@@ -40,6 +40,6 @@ const Header: FC = () => {
          </Link>
       </header>
    );
-}
+};
 
 export default Header;

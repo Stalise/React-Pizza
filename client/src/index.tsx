@@ -7,7 +7,7 @@ import { setupStore } from './store/store';
 
 import App from './App';
 
-const store = setupStore()
+const store = setupStore();
 
 ReactDOM.render(
    <Provider store={store}>
@@ -15,6 +15,6 @@ ReactDOM.render(
          <App />
       </BrowserRouter>
    </Provider>,
-   document.getElementById('root')
+   document.getElementById('root'),
 );
 

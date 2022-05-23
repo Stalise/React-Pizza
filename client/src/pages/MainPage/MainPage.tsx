@@ -11,9 +11,9 @@ import Sorter from 'components/MainPage/Sorter/Sorter';
 
 const MainPage: FC = () => {
 
-   const { status, errorStatus } = useAppSelector(state => state.productsSlice)
+   const { status, errorStatus } = useAppSelector(state => state.productsSlice);
    // капия исходного списка пицц, чтобы делать различные манипуляции с сортировками
-   const [sortedPizza, setSortedPizza] = useState<IPizza[]>([])
+   const [sortedPizza, setSortedPizza] = useState<IPizza[]>([]);
 
    return (
       <div className={s.main}>
@@ -33,8 +33,8 @@ const MainPage: FC = () => {
                   <p className={s.productsTitle}>Пицца</p>
 
                   <div className={s.productsContent}>
-                     {sortedPizza.map((item) => {
-                        return <PizzaItem pizza={item} key={item.name} />
+                     {sortedPizza.map(item => {
+                        return <PizzaItem pizza={item} key={item.name} />;
                      })}
                   </div>
                </>
@@ -42,6 +42,6 @@ const MainPage: FC = () => {
          </div>
       </div>
    );
-}
+};
 
 export default MainPage;

@@ -19,15 +19,15 @@ export const products = {
       'products/requestProducts',
       async (_, { rejectWithValue }) => {
          try {
-            const request = await instance.get<IPizza[]>(Urls.product)
-            return request.data
+            const request = await instance.get<IPizza[]>(Urls.product);
+            return request.data;
 
          } catch (error) {
-            return rejectWithValue(error)
+            return rejectWithValue(error);
          }
-      }
-   )
-}
+      },
+   ),
+};
 
 export const user = {
    checkAuth: async () => {
@@ -35,14 +35,14 @@ export const user = {
          const response = await instance.get(Urls.user);
 
          if (response.status >= 200 && response.status < 300) {
-            return response.data.message
+            return response.data.message;
          }
       } catch (error: any) {
          if (error.response.status === 401) {
-            return error.response.data.message
+            return error.response.data.message;
          }
 
-         return fetchResponses.unexpected
+         return fetchResponses.unexpected;
       }
    },
 
@@ -50,21 +50,21 @@ export const user = {
       try {
          const response = await instance.post(Urls.userAuth, { ...data }, {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
-         })
+         });
 
          if (response.status >= 200 && response.status < 300) {
-            return response.data.message
+            return response.data.message;
          } else if (response.status === 500) {
-            toast.warn(response.data.message, defaultToast)
-            return response.data.message
+            toast.warn(response.data.message, defaultToast);
+            return response.data.message;
          }
       } catch (error: any) {
          if (error.response.status === 401) {
-            toast.warn(error.response.data.message, defaultToast)
-            return error.response.data.message
+            toast.warn(error.response.data.message, defaultToast);
+            return error.response.data.message;
          }
 
-         return fetchResponses.unexpected
+         return fetchResponses.unexpected;
       }
    },
 
@@ -72,21 +72,21 @@ export const user = {
       try {
          const response = await instance.post(Urls.userReg, { ...data }, {
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
-         })
+         });
 
          if (response.status >= 200 && response.status < 300) {
-            return response.data.message
+            return response.data.message;
          } else if (response.status === 500) {
-            toast.warn(response.data.message, defaultToast)
-            return response.data.message
+            toast.warn(response.data.message, defaultToast);
+            return response.data.message;
          }
       } catch (error: any) {
          if (error.response.status === 401) {
-            toast.warn(error.response.data.message, defaultToast)
-            return error.response.data.message
+            toast.warn(error.response.data.message, defaultToast);
+            return error.response.data.message;
          }
 
-         return fetchResponses.unexpected
+         return fetchResponses.unexpected;
       }
    },
 
@@ -95,10 +95,10 @@ export const user = {
          const response = await instance.get(Urls.userLogout);
 
          if (response.status >= 200 && response.status < 300) {
-            return response.data.message
+            return response.data.message;
          }
       } catch (error: any) {
-         return fetchResponses.unexpected
+         return fetchResponses.unexpected;
       }
-   }
-}
+   },
+};

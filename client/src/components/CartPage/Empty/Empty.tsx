@@ -16,6 +16,6 @@ const Empty: FC = () => {
          </div>
       </div>
    );
-}
+};
 
 export default Empty;

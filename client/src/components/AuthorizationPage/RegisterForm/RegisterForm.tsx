@@ -16,8 +16,8 @@ interface IFormData {
 
 const RegisterForm: FC<IProps> = ({ tabStatus }) => {
 
-   const { status } = useAppSelector(state => state.userSlice)
-   const dispatch = useAppDispatch()
+   const { status } = useAppSelector(state => state.userSlice);
+   const dispatch = useAppDispatch();
 
    const {
       register,
@@ -26,8 +26,8 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
    } = useForm<IFormData>({ mode: "onBlur" });
 
    const onSubmit = async (data: IFormData) => {
-      dispatch(createUserThunk(data))
-   }
+      dispatch(createUserThunk(data));
+   };
 
    return (
       <form onSubmit={handleSubmit(onSubmit)} className={`${s.form} ${tabStatus && s._active}`}>
@@ -39,7 +39,7 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
                   required: true,
                   pattern: {
                      value: /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i,
-                     message: "Некорректный email."
+                     message: "Некорректный email.",
                   },
                })}
                className={s.field} type="email" placeholder="Example: example22@gmail.com"
@@ -57,7 +57,7 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
                   required: true,
                   pattern: { value: /^[a-zA-Z0-9]+$/, message: "Некорректные символы." },
                   minLength: { value: 6, message: "Минимум 6 символов" },
-                  maxLength: { value: 10, message: "Максимум 10 символов" }
+                  maxLength: { value: 10, message: "Максимум 10 символов" },
                })}
                className={s.field} type="password" placeholder="Example: bend12AW"
             />
@@ -67,9 +67,9 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
             </p>
          </label>
 
-         <button className={`${s.submit} ${status === 'reg' && s._auth}`} type='submit'>REGISTRATION</button>
+         <button className={`${s.submit} ${status === 'reg' && s._auth}`} type="submit">REGISTRATION</button>
       </form>
    );
-}
+};
 
 export default RegisterForm;

@@ -6,59 +6,59 @@ import { IState, IChangeAuthPayload } from './types';
 const initialState: IState = {
    isAuth: false,
    status: 'ready',
-}
+};
 
 export const userSlice = createSlice({
    name: 'user',
    initialState,
    reducers: {
       changeAutho(state, action: PayloadAction<IChangeAuthPayload>) {
-         state.isAuth = action.payload.isAuth
-         state.status = action.payload.status
+         state.isAuth = action.payload.isAuth;
+         state.status = action.payload.status;
       },
    },
-   extraReducers: (builder) => {
+   extraReducers: builder => {
       builder
-         .addCase(checkAuthThunk.pending, (state) => {
-            state.status = 'pending'
+         .addCase(checkAuthThunk.pending, state => {
+            state.status = 'pending';
          })
          .addCase(checkAuthThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.isAuth = payload
+               state.isAuth = payload;
             }
-            state.status = 'ready'
+            state.status = 'ready';
          })
          /***********************************************************/
-         .addCase(authUserThunk.pending, (state) => {
-            state.status = 'auth'
+         .addCase(authUserThunk.pending, state => {
+            state.status = 'auth';
          })
          .addCase(authUserThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.isAuth = payload
+               state.isAuth = payload;
             }
-            state.status = 'ready'
+            state.status = 'ready';
          })
          /***********************************************************/
-         .addCase(createUserThunk.pending, (state) => {
-            state.status = 'reg'
+         .addCase(createUserThunk.pending, state => {
+            state.status = 'reg';
          })
          .addCase(createUserThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.isAuth = payload
+               state.isAuth = payload;
             }
-            state.status = 'ready'
+            state.status = 'ready';
          })
          /***********************************************************/
-         .addCase(logoutUserThunk.pending, (state) => {
-            state.status = 'pending'
+         .addCase(logoutUserThunk.pending, state => {
+            state.status = 'pending';
          })
          .addCase(logoutUserThunk.fulfilled, (state, { payload }) => {
             if (typeof (payload) === "boolean") {
-               state.isAuth = payload
+               state.isAuth = payload;
             }
-            state.status = 'ready'
-         })
+            state.status = 'ready';
+         });
    },
-})
+});
 
 export default userSlice.reducer;

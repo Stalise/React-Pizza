@@ -13,17 +13,17 @@ interface IProps {
 
 const Filter: FC<IProps> = ({ setSortedPizza }) => {
 
-   const { pizzas, filter, sort } = useAppSelector(state => state.productsSlice)
-   const { changeFilter } = productsSlice.actions
-   const dispatch = useAppDispatch()
+   const { pizzas, filter, sort } = useAppSelector(state => state.productsSlice);
+   const { changeFilter } = productsSlice.actions;
+   const dispatch = useAppDispatch();
 
    const changeFilterHandler = (currentFilter: string) => {
-      dispatch(changeFilter(currentFilter))
-   }
+      dispatch(changeFilter(currentFilter));
+   };
 
    useEffect(() => {
-      sorted(filter, sort, pizzas, setSortedPizza)
-   }, [filter])
+      sorted(filter, sort, pizzas, setSortedPizza);
+   }, [filter]);
 
    return (
       <div className={s.filter}>
@@ -37,10 +37,10 @@ const Filter: FC<IProps> = ({ setSortedPizza }) => {
                >
                   {elem.title}
                </button>
-            )
+            );
          })}
       </div>
    );
-}
+};
 
 export default Filter;

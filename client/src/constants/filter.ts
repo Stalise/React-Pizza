@@ -15,10 +15,10 @@ export const filterItems: IFilterItem[] = [
    { title: 'Сырные', type: 'cheese' },
    { title: 'Вегетарианские', type: 'vegan' },
    { title: 'Острые', type: 'sharp' },
-]
+];
 
 export const selectOptions: IOptionsItem[] = [
    { value: 'popular', label: 'популярности' },
    { value: 'max', label: 'цене (макс)' },
-   { value: 'min', label: 'цене (мин)' }
-]
+   { value: 'min', label: 'цене (мин)' },
+];

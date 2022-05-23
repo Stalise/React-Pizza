@@ -20,18 +20,18 @@ const AuthorizationPage: FC = () => {
    const [tabsState, tabsStateHandler] = useState<ITabs>({
       register: false,
       auth: false,
-   })
+   });
 
    const tabsHandler = (tab: string): void => {
-      const tabsFake: ITabs = { register: false, auth: false }
-      tabsFake[tab] = true
+      const tabsFake: ITabs = { register: false, auth: false };
+      tabsFake[tab] = true;
 
-      tabsStateHandler(tabsFake)
-   }
+      tabsStateHandler(tabsFake);
+   };
 
    useEffect(() => {
-      tabsStateHandler({ ...tabsState, register: true })
-   }, [])
+      tabsStateHandler({ ...tabsState, register: true });
+   }, []);
 
    return (
       <div className={s.main}>
@@ -66,6 +66,6 @@ const AuthorizationPage: FC = () => {
          </div>
       </div>
    );
-}
+};
 
 export default AuthorizationPage;

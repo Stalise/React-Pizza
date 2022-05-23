@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import styles from './Layout.module.scss'
+import styles from './Layout.module.scss';
 import { products } from 'api/api';
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { checkAuthThunk } from 'store/UserSlice/actions';
@@ -13,13 +13,13 @@ import Loader from 'components/Common/Loader/Loader';
 
 const Layout: FC = () => {
 
-   const { status } = useAppSelector(state => state.userSlice)
-   const dispatch = useAppDispatch()
+   const { status } = useAppSelector(state => state.userSlice);
+   const dispatch = useAppDispatch();
 
    useEffect(() => {
-      dispatch(checkAuthThunk())
-      dispatch(products.getProducts())
-   }, [])
+      dispatch(checkAuthThunk());
+      dispatch(products.getProducts());
+   }, []);
 
    return (
       <div className={styles.wrapper}>
@@ -36,6 +36,6 @@ const Layout: FC = () => {
          <ToastContainer limit={3} />
       </div>
    );
-}
+};
 
 export default Layout;

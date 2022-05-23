@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import s from "./Counter.module.scss";
 import { useAppDispatch } from "hooks/redux";
-import { addItemCount, removeItemCount } from "utils/cartActions"
+import { addItemCount, removeItemCount } from "utils/cartActions";
 import { IPizzaCart } from "types/typesPizzaCart";
 
 interface IProps {
@@ -11,7 +11,7 @@ interface IProps {
 
 const Counter: FC<IProps> = ({ pizza }) => {
 
-   const dispatch = useAppDispatch()
+   const dispatch = useAppDispatch();
 
    return (
       <div className={s.counter}>
@@ -22,6 +22,6 @@ const Counter: FC<IProps> = ({ pizza }) => {
          <div onClick={() => addItemCount(pizza, dispatch)} className={s.plus}></div>
       </div>
    );
-}
+};
 
 export default Counter;

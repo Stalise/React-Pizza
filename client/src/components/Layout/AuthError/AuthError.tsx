@@ -6,12 +6,12 @@ import { useAppDispatch } from "hooks/redux";
 
 const AuthError: FC = () => {
 
-   const { changeAutho } = userSlice.actions
-   const dispatch = useAppDispatch()
+   const { changeAutho } = userSlice.actions;
+   const dispatch = useAppDispatch();
 
    const authHandler = () => {
-      dispatch(changeAutho({ isAuth: false, status: 'ready' }))
-   }
+      dispatch(changeAutho({ isAuth: false, status: 'ready' }));
+   };
 
    return (
       <div className={s.wrapper}>
@@ -23,6 +23,6 @@ const AuthError: FC = () => {
          </div>
       </div>
    );
-}
+};
 
 export default AuthError;

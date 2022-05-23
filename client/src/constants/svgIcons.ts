@@ -6,4 +6,4 @@ import { KeyType } from 'types/keyType';
 export const svgIcons: KeyType<any> = {
    trash: svgTrash,
    cart: svgCart,
-}
+};

@@ -9,9 +9,9 @@ import Payment from "../Payment/Payment";
 
 const Total: FC = () => {
 
-   const { cartItems } = useAppSelector(state => state.cartSlice)
+   const { cartItems } = useAppSelector(state => state.cartSlice);
 
-   const { totalValue, totalCost } = useMemo(() => cartTotal(cartItems), [cartItems])
+   const { totalValue, totalCost } = useMemo(() => cartTotal(cartItems), [cartItems]);
 
    return (
       <div className={s.total}>
@@ -26,6 +26,6 @@ const Total: FC = () => {
          </div>
       </div>
    );
-}
+};
 
 export default Total;

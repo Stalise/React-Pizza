@@ -16,8 +16,8 @@ interface IFormData {
 
 const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
 
-   const { status } = useAppSelector(state => state.userSlice)
-   const dispatch = useAppDispatch()
+   const { status } = useAppSelector(state => state.userSlice);
+   const dispatch = useAppDispatch();
 
    const {
       register,
@@ -27,8 +27,8 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
 
 
    const onSubmit = async (data: IFormData) => {
-      dispatch(authUserThunk(data))
-   }
+      dispatch(authUserThunk(data));
+   };
 
    return (
       <form onSubmit={handleSubmit(onSubmit)} className={`${s.form} ${tabStatus && s._active}`}>
@@ -57,7 +57,7 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
                   required: true,
                   pattern: { value: /^[a-zA-Z0-9]+$/, message: "Некорректные символы." },
                   minLength: { value: 6, message: "Минимум 6 символов" },
-                  maxLength: { value: 10, message: "Максимум 10 символов" }
+                  maxLength: { value: 10, message: "Максимум 10 символов" },
                })}
                className={s.field} type="password" placeholder="Your password"
             />
@@ -66,9 +66,9 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
             </p>
          </label>
 
-         <button className={`${s.submit} ${status === 'auth' && s._auth}`} type='submit'>AUTHORIZATION</button>
+         <button className={`${s.submit} ${status === 'auth' && s._auth}`} type="submit">AUTHORIZATION</button>
       </form>
    );
-}
+};
 
 export default AuthorizationForm;

@@ -5,7 +5,7 @@ import { useAppSelector } from "hooks/redux";
 import { sorted } from "utils/pizzaActions";
 import { IPizza } from "types/typesPizza";
 
-import MySelect from './MySelect/MySelect'
+import MySelect from './MySelect/MySelect';
 
 interface IProps {
    setSortedPizza: (arr: IPizza[]) => void
@@ -13,11 +13,11 @@ interface IProps {
 
 const Sorter: FC<IProps> = ({ setSortedPizza }) => {
 
-   const { pizzas, filter, sort } = useAppSelector(state => state.productsSlice)
+   const { pizzas, filter, sort } = useAppSelector(state => state.productsSlice);
 
    useEffect(() => {
-      sorted(filter, sort, pizzas, setSortedPizza)
-   }, [sort])
+      sorted(filter, sort, pizzas, setSortedPizza);
+   }, [sort]);
 
    return (
       <div className={s.sorter}>
@@ -26,6 +26,6 @@ const Sorter: FC<IProps> = ({ setSortedPizza }) => {
          <MySelect />
       </div>
    );
-}
+};
 
 export default Sorter;

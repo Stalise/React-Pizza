@@ -1,6 +1,6 @@
-import { KeyType } from './keyType'
+import { KeyType } from './keyType';
 
-export interface IPizzaType {
+export interface IPizzaType extends KeyType<boolean> {
    meat: boolean,
    cheese: boolean,
    sharp: boolean,

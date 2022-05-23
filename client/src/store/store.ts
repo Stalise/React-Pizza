@@ -9,13 +9,13 @@ const rootReducer = combineReducers({
    cartSlice,
    productsSlice,
    userSlice,
-})
+});
 
 export const setupStore = () => {
    return configureStore({
-      reducer: rootReducer
-   })
-}
+      reducer: rootReducer,
+   });
+};
 
 // типизируем стор и диспатчи
 export type RootState = ReturnType<typeof rootReducer>

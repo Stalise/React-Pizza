@@ -13,12 +13,12 @@ interface IProps {
 
 const CartItem: FC<IProps> = ({ pizza }) => {
 
-   const { deleteItemAction } = cartSlice.actions
-   const dispatch = useAppDispatch()
+   const { deleteItemAction } = cartSlice.actions;
+   const dispatch = useAppDispatch();
 
    const deleteItemHandler = () => {
-      dispatch(deleteItemAction(pizza.id))
-   }
+      dispatch(deleteItemAction(pizza.id));
+   };
 
    return (
       <div className={s.item}>
@@ -39,6 +39,6 @@ const CartItem: FC<IProps> = ({ pizza }) => {
          <div onClick={deleteItemHandler} className={s.delete}></div>
       </div>
    );
-}
+};
 
 export default CartItem;

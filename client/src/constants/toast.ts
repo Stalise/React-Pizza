@@ -5,14 +5,14 @@ export const defaultToast = {
    hideProgressBar: true,
    pauseOnHover: true,
    transition: Slide,
-}
+};
 
 export const toastOrder = {
    autoClose: 10000,
    hideProgressBar: true,
    pauseOnHover: true,
    transition: Slide,
-}
+};
 
 export enum messages {
    wrongEmail = "Пользователя с таким email не существует.",

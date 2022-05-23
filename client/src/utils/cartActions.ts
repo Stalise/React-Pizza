@@ -18,12 +18,12 @@ interface ITotalCartReturn {
    totalCost: number
 }
 
-const { addItemAction, deleteItemAction, changeItemCountAction } = cartSlice.actions
+const { addItemAction, deleteItemAction, changeItemCountAction } = cartSlice.actions;
 
 /*============================================================================*/
 
 export const addItem: IAddItemArguments = (pizza, currentParams, currentId, dispatch) => {
-   const currentPrice = price(pizza, currentParams.size)
+   const currentPrice = price(pizza, currentParams.size);
 
    const pizzaCartItem = {
       id: currentId,
@@ -34,46 +34,46 @@ export const addItem: IAddItemArguments = (pizza, currentParams, currentId, disp
       name: pizza.name,
       totalCount: 1,
       totalCost: currentPrice,
-   }
+   };
 
-   dispatch(addItemAction(pizzaCartItem))
-}
+   dispatch(addItemAction(pizzaCartItem));
+};
 
 export const removeItem = (id: string, dispatch: any) => {
-   dispatch(deleteItemAction(id))
-}
+   dispatch(deleteItemAction(id));
+};
 
 export const cartTotal = (cartItems: IPizzaCart[]): ITotalCartReturn => {
 
    const totalValue = cartItems.reduce((accum, item) => {
-      return accum += item.totalCount
-   }, 0)
+      return accum += item.totalCount;
+   }, 0);
 
    const totalCost = cartItems.reduce((accum, item) => {
-      return accum += item.totalCost
-   }, 0)
+      return accum += item.totalCost;
+   }, 0);
 
-   return { totalValue, totalCost }
-}
+   return { totalValue, totalCost };
+};
 
 export const addItemCount = (pizza: IPizzaCart, dispatch: any) => {
    if (pizza.totalCount >= 1 && pizza.totalCount < 10) {
-      const cloneItem = { ...pizza }
+      const cloneItem = { ...pizza };
 
-      cloneItem.totalCount += 1
-      cloneItem.totalCost = cloneItem.cost * cloneItem.totalCount
+      cloneItem.totalCount += 1;
+      cloneItem.totalCost = cloneItem.cost * cloneItem.totalCount;
 
-      dispatch(changeItemCountAction(cloneItem))
+      dispatch(changeItemCountAction(cloneItem));
    }
-}
+};
 
 export const removeItemCount = (pizza: IPizzaCart, dispatch: any) => {
    if (pizza.totalCount > 1 && pizza.totalCount <= 10) {
-      const cloneItem = { ...pizza }
+      const cloneItem = { ...pizza };
 
-      cloneItem.totalCount -= 1
-      cloneItem.totalCost = cloneItem.cost * cloneItem.totalCount
+      cloneItem.totalCount -= 1;
+      cloneItem.totalCost = cloneItem.cost * cloneItem.totalCount;
 
-      dispatch(changeItemCountAction(cloneItem))
+      dispatch(changeItemCountAction(cloneItem));
    }
-}
+};

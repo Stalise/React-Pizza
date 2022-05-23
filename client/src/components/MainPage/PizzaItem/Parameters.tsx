@@ -23,31 +23,39 @@ const Parameters: FC<IProps> = ({ pizza, currentParams, setCurrentParams }) => {
       if (available === true) {
          setCurrentParams({
             ...currentParams,
-            dough
-         })
+            dough,
+         });
       }
-   }
+   };
 
    const changeSize = (size: number) => {
       setCurrentParams({
          ...currentParams,
-         size
-      })
-   }
+         size,
+      });
+   };
 
    return (
       <div className="pizza-item__parameters">
          <ul className="pizza-item__dough">
             <li
                onClick={() => changeDough(doughNames.THIN, pizza.dough.thin)}
-               className={`pizza-item__dough-item ${currentParams.dough === doughNames.THIN && '_active'} ${pizza.dough.thin === false && '_disable'}`}
+               className={`
+                  pizza-item__dough-item
+                  ${currentParams.dough === doughNames.THIN && ' _active'}
+                  ${pizza.dough.thin === false && '_disable'}
+               `}
             >
                {doughNames.THIN}
             </li>
 
             <li
                onClick={() => changeDough(doughNames.TRADITIONAL, pizza.dough.traditional)}
-               className={`pizza-item__dough-item ${currentParams.dough === doughNames.TRADITIONAL && '_active'} ${pizza.dough.traditional === false && '_disable'}`}
+               className={`
+                  pizza-item__dough-item
+                  ${currentParams.dough === doughNames.TRADITIONAL && '_active'}
+                  ${pizza.dough.traditional === false && '_disable'}
+               `}
             >
                {doughNames.TRADITIONAL}
             </li>
@@ -63,11 +71,11 @@ const Parameters: FC<IProps> = ({ pizza, currentParams, setCurrentParams }) => {
                   >
                      {`${elem} см.`}
                   </li>
-               )
+               );
             })}
          </ul>
       </div>
    );
-}
+};
 
 export default Parameters;

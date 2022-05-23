@@ -11,29 +11,29 @@ interface IProps {
 const Modal: FC<IProps> = ({ children, isModal, setIsModal }) => {
 
    if (isModal === true) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
    } else {
-      document.body.style.overflow = "visible"
+      document.body.style.overflow = "visible";
    }
 
    const closeModal = () => {
-      setIsModal(!isModal)
-   }
+      setIsModal(!isModal);
+   };
 
    const closeModalContainer = (e: any) => {
-      e.stopPropagation()
+      e.stopPropagation();
       if (e.target.id === 'ModalContainer') {
-         setIsModal(!isModal)
+         setIsModal(!isModal);
       }
-   }
+   };
 
    return (
       <div onClick={() => closeModal()} className={`${s.modalWrapper} ${isModal && s._active}`}>
-         <div id='div' onClick={(e) => closeModalContainer(e)}>
+         <div id="div" onClick={e => closeModalContainer(e)}>
             {children}
          </div>
       </div>
    );
-}
+};
 
 export default Modal;
