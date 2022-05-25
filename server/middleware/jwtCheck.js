@@ -7,7 +7,7 @@ module.exports = async function (req, res, next) {
 
    try {
       if (!req.cookies?.token) {
-         console.log('access token missin')
+         // console.log('access token missin')
          return res.status(401).json({ message: jwtMessages.needAuth })
       }
 

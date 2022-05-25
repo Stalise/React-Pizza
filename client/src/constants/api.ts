@@ -10,5 +10,5 @@ export enum Urls {
 export enum fetchResponses {
    success = "success",
    notLogged = "Not logged",
-   unexpected = "Unexpected error",
+   unexpected = "Unexpected error! Please try again later.",
 };

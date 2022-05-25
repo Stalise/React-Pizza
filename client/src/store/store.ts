@@ -17,6 +17,8 @@ export const setupStore = () => {
    });
 };
 
+export const store = setupStore();
+
 // типизируем стор и диспатчи
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>

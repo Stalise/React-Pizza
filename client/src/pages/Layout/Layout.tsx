@@ -2,13 +2,13 @@ import { FC, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
 import styles from './Layout.module.scss';
-import { products } from 'api/api';
+import 'react-toastify/dist/ReactToastify.css';
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { checkAuthThunk } from 'store/UserSlice/actions';
+import { getProductsThunk } from 'store/ProductsSlice/actions';
 
-import Header from 'components/Layout/Header/Header';
+import Header from 'components/Common/Header/Header';
 import Loader from 'components/Common/Loader/Loader';
 
 const Layout: FC = () => {
@@ -18,7 +18,7 @@ const Layout: FC = () => {
 
    useEffect(() => {
       dispatch(checkAuthThunk());
-      dispatch(products.getProducts());
+      dispatch(getProductsThunk());
    }, []);
 
    return (

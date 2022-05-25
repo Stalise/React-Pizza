@@ -1,11 +1,15 @@
 export interface IState {
    isAuth: boolean,
-   status: string
+   status: 'ready' | 'pending' | 'auth' | 'reg',
 }
 
 /*=====================================================*/
 
 export interface IChangeAuthPayload {
    isAuth: boolean,
-   status: 'ready' | 'pending' | 'auth' | 'create',
+   status: 'ready' | 'pending' | 'auth' | 'reg',
+}
+
+export interface IAuthThunkPayload {
+   payload: boolean,
 }

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { checkAuthThunk, authUserThunk, createUserThunk, logoutUserThunk } from './actions';
-import { IState, IChangeAuthPayload } from './types';
+import { IState, IChangeAuthPayload, IAuthThunkPayload } from './types';
 
 const initialState: IState = {
    isAuth: false,
@@ -22,40 +22,32 @@ export const userSlice = createSlice({
          .addCase(checkAuthThunk.pending, state => {
             state.status = 'pending';
          })
-         .addCase(checkAuthThunk.fulfilled, (state, { payload }) => {
-            if (typeof (payload) === "boolean") {
-               state.isAuth = payload;
-            }
+         .addCase(checkAuthThunk.fulfilled, (state, { payload }: IAuthThunkPayload) => {
+            state.isAuth = payload;
             state.status = 'ready';
          })
          /***********************************************************/
          .addCase(authUserThunk.pending, state => {
             state.status = 'auth';
          })
-         .addCase(authUserThunk.fulfilled, (state, { payload }) => {
-            if (typeof (payload) === "boolean") {
-               state.isAuth = payload;
-            }
+         .addCase(authUserThunk.fulfilled, (state, { payload }: IAuthThunkPayload) => {
+            state.isAuth = payload;
             state.status = 'ready';
          })
          /***********************************************************/
          .addCase(createUserThunk.pending, state => {
             state.status = 'reg';
          })
-         .addCase(createUserThunk.fulfilled, (state, { payload }) => {
-            if (typeof (payload) === "boolean") {
-               state.isAuth = payload;
-            }
+         .addCase(createUserThunk.fulfilled, (state, { payload }: IAuthThunkPayload) => {
+            state.isAuth = payload;
             state.status = 'ready';
          })
          /***********************************************************/
          .addCase(logoutUserThunk.pending, state => {
             state.status = 'pending';
          })
-         .addCase(logoutUserThunk.fulfilled, (state, { payload }) => {
-            if (typeof (payload) === "boolean") {
-               state.isAuth = payload;
-            }
+         .addCase(logoutUserThunk.fulfilled, (state, { payload }: IAuthThunkPayload) => {
+            state.isAuth = payload;
             state.status = 'ready';
          });
    },

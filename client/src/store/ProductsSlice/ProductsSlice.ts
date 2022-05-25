@@ -1,13 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-import { products } from 'api/api';
-import { IPizza } from 'types/typesPizza';
-import { IProductSlice } from './types';
+import { getProductsThunk } from './actions';
+import { IProductSlice, IProductsThunkPayload, IProductsFilterPayload } from './types';
 
 const initialState: IProductSlice = {
    pizzas: [],
    status: 'ready',
-   errorStatus: null,
    filter: 'all',
    sort: 'popular',
 };
@@ -16,25 +14,22 @@ export const productsSlice = createSlice({
    name: 'products',
    initialState,
    reducers: {
-      changeFilter(state, action: PayloadAction<string>) {
-         state.filter = action.payload;
+      changeFilter(state, { payload }: IProductsFilterPayload) {
+         state.filter = payload;
       },
-      changeSorter(state, action: PayloadAction<string>) {
-         state.sort = action.payload;
+      changeSorter(state, { payload }: IProductsFilterPayload) {
+         state.sort = payload;
       },
    },
-   extraReducers: {
-      [String(products.getProducts.pending)]: (state: IProductSlice) => {
-         state.status = 'pending';
-      },
-      [String(products.getProducts.fulfilled)]: (state: IProductSlice, action: PayloadAction<IPizza[]>) => {
-         state.pizzas = action.payload;
-         state.status = 'ready';
-      },
-      [String(products.getProducts.rejected)]: (state: IProductSlice, action: PayloadAction<Error>) => {
-         state.errorStatus = action.payload;
-         state.status = 'rejected';
-      },
+   extraReducers: builder => {
+      builder
+         .addCase(getProductsThunk.pending, state => {
+            state.status = 'pending';
+         })
+         .addCase(getProductsThunk.fulfilled, (state, { payload }: IProductsThunkPayload) => {
+            state.pizzas = payload;
+            state.status = 'ready';
+         });
    },
 });
 

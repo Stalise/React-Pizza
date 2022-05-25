@@ -11,14 +11,13 @@ import Sorter from 'components/MainPage/Sorter/Sorter';
 
 const MainPage: FC = () => {
 
-   const { status, errorStatus } = useAppSelector(state => state.productsSlice);
+   const { status } = useAppSelector(state => state.productsSlice);
    // капия исходного списка пицц, чтобы делать различные манипуляции с сортировками
    const [sortedPizza, setSortedPizza] = useState<IPizza[]>([]);
 
    return (
       <div className={s.main}>
          <div className={s.products}>
-            {errorStatus && <p>{errorStatus.message}</p>}
 
             {status === 'pending' && <Loader />}
 
