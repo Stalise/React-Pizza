@@ -30,8 +30,11 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
    };
 
    return (
-      <form onSubmit={handleSubmit(onSubmit)} className={`${s.form} ${tabStatus && s._active}`}>
-
+      <form
+         onSubmit={handleSubmit(onSubmit)}
+         className={`${s.form} ${tabStatus ? s._active : ''}`}
+         data-testid={"register-form"}
+      >
          <label className={s.container}>
             Email
             <input
@@ -45,7 +48,7 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
                className={s.field} type="email" placeholder="Example: example22@gmail.com"
             />
 
-            <p className={`${s.error} ${errors.email && s._active}`}>
+            <p className={`${s.error} ${errors.email ? s._active : ''}`}>
                {errors?.email?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
@@ -62,12 +65,12 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
                className={s.field} type="password" placeholder="Example: bend12AW"
             />
 
-            <p className={`${s.error} ${errors.password && s._active}`}>
+            <p className={`${s.error} ${errors.password ? s._active : ''}`}>
                {errors?.password?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
 
-         <button className={`${s.submit} ${status === 'reg' && s._auth}`} type="submit">REGISTRATION</button>
+         <button className={`${s.submit} ${status === 'reg' ? s._auth : ''}`} type="submit">REGISTRATION</button>
       </form>
    );
 };

@@ -1,7 +1,8 @@
 import { FC } from "react";
 
+import s from "./Parameters.module.scss";
 import { IPizza } from "types/typesPizza";
-import { IParams } from './PizzaItem';
+import { IParams } from '../PizzaItem';
 
 interface IProps {
    pizza: IPizza,
@@ -14,7 +15,7 @@ export enum doughNames {
    TRADITIONAL = 'традиционное',
 }
 
-type DoughType = 'тонкое' | 'традиционное';
+type DoughType = doughNames.THIN | doughNames.TRADITIONAL;
 
 const Parameters: FC<IProps> = ({ pizza, currentParams, setCurrentParams }) => {
 
@@ -36,14 +37,14 @@ const Parameters: FC<IProps> = ({ pizza, currentParams, setCurrentParams }) => {
    };
 
    return (
-      <div className="pizza-item__parameters">
-         <ul className="pizza-item__dough">
+      <div className={s.parameters}>
+         <ul className={s.dough}>
             <li
                onClick={() => changeDough(doughNames.THIN, pizza.dough.thin)}
                className={`
-                  pizza-item__dough-item
-                  ${currentParams.dough === doughNames.THIN && ' _active'}
-                  ${pizza.dough.thin === false && '_disable'}
+                  ${s.doughItem}
+                  ${currentParams.dough === doughNames.THIN ? s._active : ''}
+                  ${pizza.dough.thin === false ? s._disable : ''}
                `}
             >
                {doughNames.THIN}
@@ -52,21 +53,21 @@ const Parameters: FC<IProps> = ({ pizza, currentParams, setCurrentParams }) => {
             <li
                onClick={() => changeDough(doughNames.TRADITIONAL, pizza.dough.traditional)}
                className={`
-                  pizza-item__dough-item
-                  ${currentParams.dough === doughNames.TRADITIONAL && '_active'}
-                  ${pizza.dough.traditional === false && '_disable'}
+                  ${s.doughItem}
+                  ${currentParams.dough === doughNames.TRADITIONAL ? s._active : ''}
+                  ${pizza.dough.traditional === false ? s._disable : ''}
                `}
             >
                {doughNames.TRADITIONAL}
             </li>
          </ul>
 
-         <ul className="pizza-item__size">
+         <ul className={s.size}>
             {Object.values(pizza.size).map(elem => {
                return (
                   <li
                      onClick={() => changeSize(elem)}
-                     className={`pizza-item__size-item ${currentParams.size === elem && '_active'}`}
+                     className={`${s.sizeItem} ${currentParams.size === elem ? s._active : ''}`}
                      key={elem}
                   >
                      {`${elem} см.`}

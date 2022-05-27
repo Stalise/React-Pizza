@@ -1,0 +1,42 @@
+.order {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   .orderPrice {
+      font-weight: 700;
+      font-size: 25px;
+      span {
+         font-size: 20px;
+      }
+   }
+   .orderButton {
+      color: #eb5a1e;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 15px;
+      background-color: #fff;
+      border: 1px solid #eb5a1e;
+      border-radius: 20px;
+      transition: all 0.3s;
+      
+      &:hover {
+         background-color: #eb5a1e;
+         color: #fff;
+      }
+      &:active {
+         transform: scale(0.8, 0.8);
+      }
+
+      &._active {
+         background-color: #e3541b;
+         color: #fff;
+
+         &:hover {
+            background-color: #fff;
+            color: #eb5a1e;
+         }
+      }
+   }
+}

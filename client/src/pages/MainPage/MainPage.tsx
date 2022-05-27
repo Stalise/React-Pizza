@@ -16,7 +16,7 @@ const MainPage: FC = () => {
    const [sortedPizza, setSortedPizza] = useState<IPizza[]>([]);
 
    return (
-      <div className={s.main}>
+      <div className={s.main} data-testid="main-page">
          <div className={s.products}>
 
             {status === 'pending' && <Loader />}

@@ -31,7 +31,7 @@ const Filter: FC<IProps> = ({ setSortedPizza }) => {
             return (
                <button
                   type="button"
-                  className={`${s.filterButton} ${filter === elem.type && s._active}`}
+                  className={`${s.filterButton} ${filter === elem.type ? s._active : ''}`}
                   onClick={() => changeFilterHandler(elem.type)}
                   key={elem.type}
                >

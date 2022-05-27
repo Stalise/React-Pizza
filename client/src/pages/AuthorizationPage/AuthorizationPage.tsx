@@ -14,9 +14,6 @@ interface ITabs extends KeyType<boolean> {
 
 const AuthorizationPage: FC = () => {
 
-   // document.cookie = "user=John; expires: 30; secure";
-
-   // const [loading, setLoading] = useState(false)
    const [tabsState, tabsStateHandler] = useState<ITabs>({
       register: false,
       auth: false,

@@ -5,14 +5,14 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 const userRouter = require('./routes/user.router');
-const productRouter = require('./routes/product.router');
+const productsRouter = require('./routes/products.router');
 
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({ origin: 'http://localhost:3000', credentials: true, }))
 
 app.use('/api', userRouter)
-app.use('/api', productRouter)
+app.use('/api', productsRouter)
 
 app.get('/', (req, res) => {
    res.send('get is ready.')

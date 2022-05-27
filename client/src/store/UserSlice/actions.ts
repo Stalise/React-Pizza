@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { user } from 'api/api';
-import { fetchResponses } from "constants/api";
+import { apiResponsesMessage } from "constants/api";
 import { IUserData } from "types/api";
 
 export const checkAuthThunk = createAsyncThunk(
@@ -9,7 +9,7 @@ export const checkAuthThunk = createAsyncThunk(
    async () => {
       const response: string = await user.checkAuth();
 
-      if (response === fetchResponses.success) {
+      if (response === apiResponsesMessage.success) {
          return true;
       } else {
          return false;
@@ -22,7 +22,7 @@ export const authUserThunk = createAsyncThunk(
    async (data: IUserData) => {
       const response: string = await user.authUser(data);
 
-      if (response === fetchResponses.success) {
+      if (response === apiResponsesMessage.success) {
          return true;
       } else {
          return false;
@@ -35,7 +35,7 @@ export const createUserThunk = createAsyncThunk(
    async (data: IUserData) => {
       const response: string = await user.createUser(data);
 
-      if (response === fetchResponses.success) {
+      if (response === apiResponsesMessage.success) {
          return true;
       } else {
          return false;
@@ -48,7 +48,7 @@ export const logoutUserThunk = createAsyncThunk(
    async () => {
       const response: string = await user.logoutUser();
 
-      if (response === fetchResponses.success) {
+      if (response === apiResponsesMessage.success) {
          return false;
       } else {
          return false;

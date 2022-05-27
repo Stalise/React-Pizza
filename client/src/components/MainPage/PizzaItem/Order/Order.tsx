@@ -1,9 +1,11 @@
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { FC, useLayoutEffect, useState } from "react";
 
+import s from "./Order.module.scss";
 import { addItem, removeItem } from 'utils/cartActions';
+import { price } from "utils/pizzaActions";
 import { IPizza } from 'types/typesPizza';
-import { IParams } from './PizzaItem';
+import { IParams } from '../PizzaItem';
 
 interface IState {
    pizza: IPizza,
@@ -19,8 +21,7 @@ const Order: FC<IState> = ({ pizza, currentParams }) => {
    const currentId = pizza.name + currentParams.size;
 
    const cartHandler = () => {
-
-      if (status === true) {
+      if (status) {
          removeItem(currentId, dispatch);
       } else {
          addItem(pizza, currentParams, currentId, dispatch);
@@ -39,12 +40,16 @@ const Order: FC<IState> = ({ pizza, currentParams }) => {
    }, [cartItems, currentId]);
 
    return (
-      <button
-         onClick={cartHandler}
-         className={`pizza-item__order ${status && '_active'}`}
-      >
-         {status ? 'Убрать' : 'Добавить'}
-      </button>
+      <div className={s.order}>
+         <p className={s.orderPrice}>{price(pizza, currentParams.size)} <span>₽</span></p>
+
+         <button
+            onClick={cartHandler}
+            className={`${s.orderButton} ${status ? s._active : ''}`}
+         >
+            {status ? 'Убрать' : 'Добавить'}
+         </button>
+      </div>
    );
 };
 

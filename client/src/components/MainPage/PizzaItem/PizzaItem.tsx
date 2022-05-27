@@ -1,11 +1,10 @@
 import { FC, useState, memo } from "react";
 
-import './PizzaItem.scss';
-import { price } from "utils/pizzaActions";
+import s from './PizzaItem.module.scss';
 import { IPizza } from "types/typesPizza";
 
-import Parameters from "./Parameters";
-import Order from "./Order";
+import Parameters from "./Parameters/Parameters";
+import Order from "./Order/Order";
 
 interface IProps {
    pizza: IPizza,
@@ -24,12 +23,12 @@ const PizzaItem: FC<IProps> = ({ pizza }) => {
    });
 
    return (
-      <div className="main-pizza__item pizza-item">
-         <div className="pizza-item__picture">
-            <img src={'./images/' + pizza.img} alt="pizza" />
+      <div className={s.pizza} data-testid="pizza-item">
+         <div className={s.pictureWrapper}>
+            <img className={s.picture} src={`./images/${pizza.img}`} alt="pizza" />
          </div>
-         <div className="pizza-item__content">
-            <p className="pizza-item__title">{pizza.name}</p>
+         <div className={s.content}>
+            <p className={s.title}>{pizza.name}</p>
 
             <Parameters
                pizza={pizza}
@@ -37,14 +36,10 @@ const PizzaItem: FC<IProps> = ({ pizza }) => {
                setCurrentParams={setCurrentParams}
             />
 
-            <div className="pizza-item__bottom">
-               <p className="pizza-item__price">{price(pizza, currentParams.size)} <span>₽</span></p>
-
-               <Order
-                  pizza={pizza}
-                  currentParams={currentParams}
-               />
-            </div>
+            <Order
+               pizza={pizza}
+               currentParams={currentParams}
+            />
          </div>
       </div>
    );

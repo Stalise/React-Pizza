@@ -31,7 +31,7 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
    };
 
    return (
-      <form onSubmit={handleSubmit(onSubmit)} className={`${s.form} ${tabStatus && s._active}`}>
+      <form onSubmit={handleSubmit(onSubmit)} className={`${s.form} ${tabStatus ? s._active : ''}`} data-testid={"auth-form"}>
 
          <label className={s.container}>
             Email
@@ -45,7 +45,7 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
                })}
                className={s.field} type="email" placeholder="Your email"
             />
-            <p className={`${s.error} ${errors.email && s._active}`}>
+            <p className={`${s.error} ${errors.email ? s._active : ''}`}>
                {errors?.email?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
@@ -61,12 +61,12 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
                })}
                className={s.field} type="password" placeholder="Your password"
             />
-            <p className={`${s.error} ${errors.password && s._active}`}>
+            <p className={`${s.error} ${errors.password ? s._active : ''}`}>
                {errors?.password?.message || 'Обязательное поле для ввода.'}
             </p>
          </label>
 
-         <button className={`${s.submit} ${status === 'auth' && s._auth}`} type="submit">AUTHORIZATION</button>
+         <button className={`${s.submit} ${status === 'auth' ? s._auth : ''}`} type="submit">AUTHORIZATION</button>
       </form>
    );
 };

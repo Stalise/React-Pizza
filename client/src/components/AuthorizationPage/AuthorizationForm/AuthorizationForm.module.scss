@@ -1,7 +1,6 @@
 .form {
    display: flex;
    flex-direction: column;
-   // align-items: center;
    display: none;
    &._active {
       display: flex;

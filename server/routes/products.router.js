@@ -1,8 +1,8 @@
 const Router = require('express');
 const router = new Router()
-const productController = require('../controllers/product.controller');
+const productController = require('../controllers/products.controller');
 // const jwtCheck = require('../middleware/jwtCheck')
 
-router.get('/product', productController.getProducts)
+router.get('/products', productController.getProducts)
 
 module.exports = router
