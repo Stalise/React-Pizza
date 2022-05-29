@@ -2,10 +2,10 @@ import { FC, useEffect } from "react";
 
 import s from "./Filter.module.scss";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
-import { sorted } from 'utils/pizzaActions';
+import { sorted } from 'utils/pizzaHelpers';
 import { filterItems } from 'constants/filter';
-import { productsSlice } from "store/ProductsSlice/ProductsSlice";
-import { IPizza } from 'types/typesPizza';
+import { changeFilterAction } from "store/ProductsSlice/ProductsSlice";
+import { IPizza } from 'types/pizza';
 
 interface IProps {
    setSortedPizza: (data: IPizza[]) => void,
@@ -14,11 +14,10 @@ interface IProps {
 const Filter: FC<IProps> = ({ setSortedPizza }) => {
 
    const { pizzas, filter, sort } = useAppSelector(state => state.productsSlice);
-   const { changeFilter } = productsSlice.actions;
    const dispatch = useAppDispatch();
 
    const changeFilterHandler = (currentFilter: string) => {
-      dispatch(changeFilter(currentFilter));
+      dispatch(changeFilterAction(currentFilter));
    };
 
    useEffect(() => {

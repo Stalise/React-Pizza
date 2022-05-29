@@ -42,6 +42,6 @@
       ],
       "no-useless-escape": "off",
       "react-hooks/exhaustive-deps": "off",
-      "testing-library/no-debugging-utils": "off"
+      "testing-library/no-debugging-utils": "warn"
    }
 }

@@ -45,8 +45,8 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
                })}
                className={s.field} type="email" placeholder="Your email"
             />
-            <p className={`${s.error} ${errors.email ? s._active : ''}`}>
-               {errors?.email?.message || 'Обязательное поле для ввода.'}
+            <p className={`${s.error} ${errors.email ? s._active : ''}`} data-testid={"auth-error-email"}>
+               {errors?.email?.message || 'Обязательное поле.'}
             </p>
          </label>
 
@@ -55,14 +55,14 @@ const AuthorizationForm: FC<IProps> = ({ tabStatus }) => {
             <input
                {...register('password', {
                   required: true,
-                  pattern: { value: /^[a-zA-Z0-9]+$/, message: "Некорректные символы." },
+                  pattern: { value: /^[a-zA-Z0-9]+$/, message: "Некорректный пароль." },
                   minLength: { value: 6, message: "Минимум 6 символов" },
                   maxLength: { value: 10, message: "Максимум 10 символов" },
                })}
                className={s.field} type="password" placeholder="Your password"
             />
-            <p className={`${s.error} ${errors.password ? s._active : ''}`}>
-               {errors?.password?.message || 'Обязательное поле для ввода.'}
+            <p className={`${s.error} ${errors.password ? s._active : ''}`} data-testid={"auth-error-password"}>
+               {errors?.password?.message || 'Обязательное поле.'}
             </p>
          </label>
 

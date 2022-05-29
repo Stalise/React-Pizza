@@ -3,7 +3,7 @@ import { FC } from "react";
 import s from "./CartItem.module.scss";
 import { cartSlice } from "store/CartSlice/CartSlice";
 import { useAppDispatch } from "hooks/redux";
-import { IPizzaCart } from "types/typesPizzaCart";
+import { IPizzaCart } from "types/cart";
 
 import Counter from "./Counter/Counter";
 

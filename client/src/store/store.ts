@@ -4,16 +4,16 @@ import cartSlice from './CartSlice/CartSlice';
 import productsSlice from './ProductsSlice/ProductsSlice';
 import userSlice from "./UserSlice/UserSlice";
 
-
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
    cartSlice,
    productsSlice,
    userSlice,
 });
 
-export const setupStore = () => {
+export const setupStore = (initialState = {}) => {
    return configureStore({
       reducer: rootReducer,
+      preloadedState: initialState,
    });
 };
 

@@ -1,8 +1,8 @@
-import { price } from 'utils/pizzaActions';
-import { cartSlice } from "store/CartSlice/CartSlice";
+import { price } from 'utils/pizzaHelpers';
+import { addItemAction, deleteItemAction, changeItemCountAction } from "store/CartSlice/CartSlice";
 import { IParams } from "components/MainPage/PizzaItem/PizzaItem";
-import { IPizza } from "types/typesPizza";
-import { IPizzaCart } from "types/typesPizzaCart";
+import { IPizza } from "types/pizza";
+import { IPizzaCart } from "types/cart";
 
 interface IAddItemArguments {
    (
@@ -17,8 +17,6 @@ interface ITotalCartReturn {
    totalValue: number,
    totalCost: number
 }
-
-const { addItemAction, deleteItemAction, changeItemCountAction } = cartSlice.actions;
 
 /*============================================================================*/
 

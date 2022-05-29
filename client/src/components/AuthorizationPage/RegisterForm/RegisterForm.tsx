@@ -48,8 +48,8 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
                className={s.field} type="email" placeholder="Example: example22@gmail.com"
             />
 
-            <p className={`${s.error} ${errors.email ? s._active : ''}`}>
-               {errors?.email?.message || 'Обязательное поле для ввода.'}
+            <p className={`${s.error} ${errors.email ? s._active : ''}`} data-testid={"reg-error-email"}>
+               {errors?.email?.message || "Обязательное поле."}
             </p>
          </label>
 
@@ -58,15 +58,15 @@ const RegisterForm: FC<IProps> = ({ tabStatus }) => {
             <input
                {...register('password', {
                   required: true,
-                  pattern: { value: /^[a-zA-Z0-9]+$/, message: "Некорректные символы." },
+                  pattern: { value: /^[a-zA-Z0-9]+$/, message: "Некорректный пароль." },
                   minLength: { value: 6, message: "Минимум 6 символов" },
                   maxLength: { value: 10, message: "Максимум 10 символов" },
                })}
                className={s.field} type="password" placeholder="Example: bend12AW"
             />
 
-            <p className={`${s.error} ${errors.password ? s._active : ''}`}>
-               {errors?.password?.message || 'Обязательное поле для ввода.'}
+            <p className={`${s.error} ${errors.password ? s._active : ''}`} data-testid={"reg-error-password"}>
+               {errors?.password?.message || 'Обязательное поле.'}
             </p>
          </label>
 

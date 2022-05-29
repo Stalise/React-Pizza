@@ -1,4 +1,4 @@
-import { IPizza } from './typesPizza';
+import { IPizza } from './pizza';
 
 export interface IUserData {
    email: string,

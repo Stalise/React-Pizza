@@ -1,16 +1,15 @@
 import { FC } from "react";
 
 import s from './AuthError.module.scss';
-import { userSlice } from "store/UserSlice/UserSlice";
+import { changeAuthoAction } from "store/UserSlice/UserSlice";
 import { useAppDispatch } from "hooks/redux";
 
 const AuthError: FC = () => {
 
-   const { changeAutho } = userSlice.actions;
    const dispatch = useAppDispatch();
 
    const authHandler = () => {
-      dispatch(changeAutho({ isAuth: false, status: 'ready' }));
+      dispatch(changeAuthoAction({ isAuth: false, status: 'ready' }));
    };
 
    return (

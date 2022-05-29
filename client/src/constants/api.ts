@@ -12,4 +12,5 @@ export enum apiResponsesMessage {
    needAuth = "Need authorization",
    notLogged = "Not logged",
    unexpected = "Unexpected error! Please try again later.",
+   existingEmail = "Пользователь с таким email уже существует.",
 };

@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import s from "./Parameters.module.scss";
-import { IPizza } from "types/typesPizza";
+import { IPizza } from "types/pizza";
 import { IParams } from '../PizzaItem';
 
 interface IProps {

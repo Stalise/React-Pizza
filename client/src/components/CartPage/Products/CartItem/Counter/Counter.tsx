@@ -2,8 +2,8 @@ import { FC } from "react";
 
 import s from "./Counter.module.scss";
 import { useAppDispatch } from "hooks/redux";
-import { addItemCount, removeItemCount } from "utils/cartActions";
-import { IPizzaCart } from "types/typesPizzaCart";
+import { addItemCount, removeItemCount } from "utils/cartHelpers";
+import { IPizzaCart } from "types/cart";
 
 interface IProps {
    pizza: IPizzaCart,

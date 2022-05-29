@@ -1,6 +1,6 @@
-import { IPizza } from "../../types/typesPizza";
+import { IPizza } from "../../types/pizza";
 
-export interface IProductSlice {
+export interface IProductsSlice {
    pizzas: IPizza[],
    status: string,
    filter: string,

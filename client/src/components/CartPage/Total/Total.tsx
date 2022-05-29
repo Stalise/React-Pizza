@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import s from "./Total.module.scss";
 import { useAppSelector } from "hooks/redux";
-import { cartTotal } from "utils/cartActions";
+import { cartTotal } from "utils/cartHelpers";
 
 import Payment from "../Payment/Payment";
 

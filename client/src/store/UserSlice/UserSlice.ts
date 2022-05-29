@@ -12,7 +12,7 @@ export const userSlice = createSlice({
    name: 'user',
    initialState,
    reducers: {
-      changeAutho(state, action: PayloadAction<IChangeAuthPayload>) {
+      changeAuthoAction(state, action: PayloadAction<IChangeAuthPayload>) {
          state.isAuth = action.payload.isAuth;
          state.status = action.payload.status;
       },
@@ -54,3 +54,5 @@ export const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
+
+export const { changeAuthoAction } = userSlice.actions;

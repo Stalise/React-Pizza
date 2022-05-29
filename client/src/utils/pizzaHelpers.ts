@@ -1,4 +1,4 @@
-import { IPizza } from 'types/typesPizza';
+import { IPizza } from 'types/pizza';
 
 interface ISorted {
    (

@@ -1,4 +1,4 @@
-import { IPizzaCart } from '../../types/typesPizzaCart';
+import { IPizzaCart } from '../../types/cart';
 
 export interface IState {
    cartItems: IPizzaCart[],

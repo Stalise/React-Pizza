@@ -2,9 +2,9 @@ import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { FC, useLayoutEffect, useState } from "react";
 
 import s from "./Order.module.scss";
-import { addItem, removeItem } from 'utils/cartActions';
-import { price } from "utils/pizzaActions";
-import { IPizza } from 'types/typesPizza';
+import { addItem, removeItem } from 'utils/cartHelpers';
+import { price } from "utils/pizzaHelpers";
+import { IPizza } from 'types/pizza';
 import { IParams } from '../PizzaItem';
 
 interface IState {

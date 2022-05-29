@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { getProductsThunk } from './actions';
-import { IProductSlice, IProductsThunkPayload, IProductsFilterPayload } from './types';
+import { IProductsSlice, IProductsThunkPayload, IProductsFilterPayload } from './types';
 
-const initialState: IProductSlice = {
+const initialState: IProductsSlice = {
    pizzas: [],
    status: 'ready',
    filter: 'all',
@@ -14,10 +14,10 @@ export const productsSlice = createSlice({
    name: 'products',
    initialState,
    reducers: {
-      changeFilter(state, { payload }: IProductsFilterPayload) {
+      changeFilterAction(state, { payload }: IProductsFilterPayload) {
          state.filter = payload;
       },
-      changeSorter(state, { payload }: IProductsFilterPayload) {
+      changeSorterAction(state, { payload }: IProductsFilterPayload) {
          state.sort = payload;
       },
    },
@@ -34,3 +34,5 @@ export const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
+
+export const { changeFilterAction, changeSorterAction } = productsSlice.actions;

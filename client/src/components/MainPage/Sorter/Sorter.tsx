@@ -2,8 +2,8 @@ import { FC, useEffect } from "react";
 
 import s from './Sorter.module.scss';
 import { useAppSelector } from "hooks/redux";
-import { sorted } from "utils/pizzaActions";
-import { IPizza } from "types/typesPizza";
+import { sorted } from "utils/pizzaHelpers";
+import { IPizza } from "types/pizza";
 
 import MySelect from './MySelect/MySelect';
 

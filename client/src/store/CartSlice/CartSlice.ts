@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IPizzaCart } from "types/typesPizzaCart";
+import { IPizzaCart } from "types/cart";
 import { IState } from './types';
 
 const initialState: IState = {
@@ -29,3 +29,5 @@ export const cartSlice = createSlice({
 });
 
 export default cartSlice.reducer;
+
+export const { addItemAction, deleteItemAction, changeItemCountAction, deleteAllAction } = cartSlice.actions;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import s from './Header.module.scss';
 import { svgIcons } from "constants/svgIcons";
 import { useAppSelector } from "hooks/redux";
-import { getTotalOrder } from "utils/CartTotalOrder";
+import { cartTotal } from "utils/cartHelpers";
 
 import AuthButton from './AuthButton/AuthButton';
 
@@ -16,7 +16,7 @@ const Header: FC = () => {
    const [totalItems, setTotalItems] = useState<number>(0);
 
    useEffect(() => {
-      const { totalValue } = getTotalOrder(cartItems);
+      const { totalValue } = cartTotal(cartItems);
       setTotalItems(totalValue);
    }, [cartItems]);
 

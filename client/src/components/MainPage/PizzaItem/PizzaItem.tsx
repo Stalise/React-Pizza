@@ -1,7 +1,7 @@
 import { FC, useState, memo } from "react";
 
 import s from './PizzaItem.module.scss';
-import { IPizza } from "types/typesPizza";
+import { IPizza } from "types/pizza";
 
 import Parameters from "./Parameters/Parameters";
 import Order from "./Order/Order";

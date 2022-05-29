@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 
 import s from './MainPage.module.scss';
 import { useAppSelector } from 'hooks/redux';
-import { IPizza } from 'types/typesPizza';
+import { IPizza } from 'types/pizza';
 
 import PizzaItem from 'components/MainPage/PizzaItem/PizzaItem';
 import Filter from 'components/MainPage/Filter/Filter';
