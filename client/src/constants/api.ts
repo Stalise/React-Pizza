@@ -1,5 +1,6 @@
 export enum Urls {
-   base_url = 'http://localhost:8000/api/',
+   // base_url = 'http://localhost:8000/api/',
+   base_url = "https://deploy-pizza.herokuapp.com/api/",
    user = "user",
    userAuth = "user/auth",
    userReg = "user/reg",

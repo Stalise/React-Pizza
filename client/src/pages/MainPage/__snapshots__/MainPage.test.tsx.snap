@@ -139,7 +139,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/mexican.jpg"
+              src="/React-Pizza/images/mexican.jpg"
             />
           </div>
           <div
@@ -225,7 +225,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/four-cheese.jpeg"
+              src="/React-Pizza/images/four-cheese.jpeg"
             />
           </div>
           <div
@@ -311,7 +311,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/pepperoni.jpeg"
+              src="/React-Pizza/images/pepperoni.jpeg"
             />
           </div>
           <div
@@ -397,7 +397,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/cheese-chiken.jpg"
+              src="/React-Pizza/images/cheese-chiken.jpg"
             />
           </div>
           <div
@@ -483,7 +483,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/veg-mush.jpeg"
+              src="/React-Pizza/images/veg-mush.jpeg"
             />
           </div>
           <div
@@ -569,7 +569,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/ham-cheese.jpeg"
+              src="/React-Pizza/images/ham-cheese.jpeg"
             />
           </div>
           <div
@@ -655,7 +655,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/pizza-pie.jpg"
+              src="/React-Pizza/images/pizza-pie.jpg"
             />
           </div>
           <div
@@ -741,7 +741,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/cheese.jpeg"
+              src="/React-Pizza/images/cheese.jpeg"
             />
           </div>
           <div
@@ -827,7 +827,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/double-chicken.jpeg"
+              src="/React-Pizza/images/double-chicken.jpeg"
             />
           </div>
           <div
@@ -913,7 +913,7 @@ exports[`MainPage products functional checking sorter operability 1`] = `
             <img
               alt="pizza"
               class="picture"
-              src="./images/pepperoni-fresh.jpeg"
+              src="/React-Pizza/images/pepperoni-fresh.jpeg"
             />
           </div>
           <div

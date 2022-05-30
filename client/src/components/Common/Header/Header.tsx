@@ -8,6 +8,7 @@ import { cartTotal } from "utils/cartHelpers";
 
 import AuthButton from './AuthButton/AuthButton';
 
+const path = process.env.REACT_APP_GITHUB_PATH;
 
 const Header: FC = () => {
 
@@ -25,7 +26,7 @@ const Header: FC = () => {
          <AuthButton />
 
          <Link to="/" className={s.logo}>
-            <img src="./images/pizza-peace.png" className={s.logoImage} alt="pizza-logo" />
+            <img src={`${path}/images/pizza-peace.png`} className={s.logoImage} alt="pizza-logo" />
 
             <div className={s.logoText}>
                <p className={s.logoTitle}>REACT PIZZA</p>

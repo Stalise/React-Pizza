@@ -1,8 +1,10 @@
 node_modules/
+desktop.ini
 
 client/node_modules/
 client/build/
-clinet/coverage/
+client/coverage/
+client/.env
 
 server/node_modules/
 server/.env

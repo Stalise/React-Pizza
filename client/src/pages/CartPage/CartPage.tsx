@@ -8,6 +8,8 @@ import Products from "components/CartPage/Products/Products";
 import Total from "components/CartPage/Total/Total";
 import Empty from "components/CartPage/Empty/Empty";
 
+const path = process.env.REACT_APP_GITHUB_PATH;
+
 const CartPage: FC = () => {
 
    const { cartItems } = useAppSelector(state => state.cartSlice);
@@ -23,7 +25,7 @@ const CartPage: FC = () => {
                   <div className={s.content}>
                      <div className={s.contentTop}>
                         <div className={s.text}>
-                           <img src="./images/cart-icon-big.png" className={s.textIcon} alt="cart" />
+                           <img src={`${path}/images/cart-icon-big.png`} className={s.textIcon} alt="cart" />
                            <h1 className={s.textTitle}>Корзина</h1>
                         </div>
 

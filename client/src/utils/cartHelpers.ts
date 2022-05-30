@@ -28,7 +28,7 @@ export const addItem: IAddItemArguments = (pizza, currentParams, currentId, disp
       dough: currentParams.dough,
       size: currentParams.size,
       cost: currentPrice,
-      img: './images/' + pizza.img,
+      img: '/images/' + pizza.img,
       name: pizza.name,
       totalCount: 1,
       totalCost: currentPrice,

@@ -11,6 +11,8 @@ interface IProps {
    pizza: IPizzaCart,
 }
 
+const path = process.env.REACT_APP_GITHUB_PATH;
+
 const CartItem: FC<IProps> = ({ pizza }) => {
 
    const { deleteItemAction } = cartSlice.actions;
@@ -24,7 +26,7 @@ const CartItem: FC<IProps> = ({ pizza }) => {
       <div className={s.item}>
          <div className={s.info}>
             <div className={s.infoImageContainer}>
-               <img src={pizza.img} className={s.infoImage} alt="pizza" />
+               <img src={`${path}${pizza.img}`} className={s.infoImage} alt="pizza" />
             </div>
             <div className={s.infoText}>
                <p className={s.infoTitle}>{pizza.name}</p>

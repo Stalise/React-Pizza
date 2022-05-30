@@ -15,6 +15,8 @@ export interface IParams {
    size: number,
 }
 
+const path = process.env.REACT_APP_GITHUB_PATH;
+
 const PizzaItem: FC<IProps> = ({ pizza }) => {
 
    const [currentParams, setCurrentParams] = useState<IParams>({
@@ -25,7 +27,7 @@ const PizzaItem: FC<IProps> = ({ pizza }) => {
    return (
       <div className={s.pizza} data-testid="pizza-item">
          <div className={s.pictureWrapper}>
-            <img className={s.picture} src={`./images/${pizza.img}`} alt="pizza" />
+            <img className={s.picture} src={`${path}/images/${pizza.img}`} alt="pizza" />
          </div>
          <div className={s.content}>
             <p className={s.title}>{pizza.name}</p>

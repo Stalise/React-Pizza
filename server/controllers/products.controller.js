@@ -7,6 +7,7 @@ class ProductController {
    async getProducts(req, res) {
       try {
          const requestProducts = await db.query(`SELECT * FROM pizzas`);
+         console.log(requestProducts.rows);
          const allProducts = requestProducts.rows;
 
          // заполняем данные о пицце из дочерних таблиц. Знаю что можно было лучше это написать, через json_agg и т.д, но это сложно :)

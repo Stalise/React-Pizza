@@ -2,6 +2,8 @@ import { FC } from "react";
 
 import s from "./Empty.module.scss";
 
+const path = process.env.REACT_APP_GITHUB_PATH;
+
 const Empty: FC = () => {
 
    return (
@@ -12,7 +14,7 @@ const Empty: FC = () => {
             <p className={s.subtle}>Для того чтобы это сделать, перейдите на главную страницу</p>
          </div>
          <div className={s.imageContainer}>
-            <img src="./images/cart-person.png" className={s.image} alt={'cart-person'} />
+            <img src={`${path}/images/cart-person.png`} className={s.image} alt={'cart-person'} />
          </div>
       </div>
    );

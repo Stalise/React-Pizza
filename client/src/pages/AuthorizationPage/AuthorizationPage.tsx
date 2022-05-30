@@ -12,6 +12,8 @@ interface ITabs extends KeyType<boolean> {
    auth: boolean,
 }
 
+const path = process.env.REACT_APP_GITHUB_PATH;
+
 const AuthorizationPage: FC = () => {
 
    const [tabsState, tabsStateHandler] = useState<ITabs>({
@@ -38,7 +40,7 @@ const AuthorizationPage: FC = () => {
                   <Link to={'/'}>
                      <div className={s.logo}>
                         <div className={s.logoImageContainer}>
-                           <img src="./images/pizza-peace.png" className={s.logoImage} alt="logo-pizza" />
+                           <img src={`${path}/images/pizza-peace.png`} className={s.logoImage} alt="logo-pizza" />
                         </div>
                         <p className={s.logoText}>React Pizza</p>
                      </div>
