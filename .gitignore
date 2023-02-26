@@ -1,6 +1,11 @@
 node_modules/
 desktop.ini
 
+client_deprecated/node_modules/
+client_deprecated/build/
+client_deprecated/coverage/
+client_deprecated/.env
+
 client/node_modules/
 client/build/
 client/coverage/

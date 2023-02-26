@@ -1,55 +1,22 @@
 {
-   "name": "react-pizza",
-   "version": "0.1.0",
-   "private": true,
-   "homepage": ".",
-   "dependencies": {
-      "@reduxjs/toolkit": "^1.7.1",
-      "@testing-library/jest-dom": "^5.16.1",
-      "@testing-library/react": "^12.1.2",
-      "@testing-library/user-event": "^13.5.0",
-      "axios": "^0.26.0",
-      "react": "^17.0.2",
-      "react-dom": "^17.0.2",
-      "react-hook-form": "^7.25.1",
-      "react-redux": "^7.2.6",
-      "react-router-dom": "^6.2.1",
-      "react-scripts": "5.0.0",
-      "react-select": "^5.2.2",
-      "react-toastify": "^9.0.1",
-      "sass": "^1.49.8",
-      "web-vitals": "^2.1.4"
-   },
-   "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "eject": "react-scripts eject",
-      "test": "react-scripts test --passWithNoTests",
-      "test:once": "react-scripts test --watchAll=false",
-      "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx --max-warnings=0 .",
-      "lint:fix": "npm run lint -- --fix"
-   },
-   "browserslist": {
-      "production": [
-         ">0.2%",
-         "not dead",
-         "not op_mini all"
-      ],
-      "development": [
-         "last 1 chrome version",
-         "last 1 firefox version",
-         "last 1 safari version"
-      ]
-   },
-   "devDependencies": {
-      "@types/jest": "^27.4.0",
-      "@types/node": "^16.11.21",
-      "@types/react": "^17.0.38",
-      "@types/react-dom": "^17.0.11",
-      "@types/react-redux": "^7.1.22",
-      "@types/react-select": "^5.0.1",
-      "axios-mock-adapter": "^1.20.0",
-      "react-select-event": "^5.5.0",
-      "typescript": "^4.5.5"
-   }
+  "name": "react-pizza",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  }
 }
