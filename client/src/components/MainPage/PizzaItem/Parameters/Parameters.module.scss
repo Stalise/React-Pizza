@@ -1,0 +1,54 @@
+.parameters {
+   width: 100%;
+   background-color: #f3f3f3;
+   border-radius: 10px;
+   margin-bottom: 15px;
+   .dough {
+      display: flex;
+      justify-content: center;
+      padding: 5px 5px 0px 5px;
+      margin-bottom: 3px;
+      .doughItem {
+         font-size: 15px;
+         font-weight: 700;
+         width: 50%;
+         display: flex;
+         justify-content: center;
+         padding: 10px 0;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: background-color 0.4s, filter 0.4s;
+
+         &._active {
+            background-color: #fff;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+         }
+
+         &._disable {
+            text-decoration: line-through;
+            pointer-events: none;
+         }
+      }
+   }
+   .size {
+      display: flex;
+      justify-content: center;
+      padding: 0px 5px 5px 5px;
+      .sizeItem {
+         font-size: 15px;
+         font-weight: 700;
+         width: 50%;
+         display: flex;
+         justify-content: center;
+         padding: 10px 0;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: background-color 0.4s, filter 0.4s;
+
+         &._active {
+            background-color: #fff;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+         }
+      }
+   }
+}

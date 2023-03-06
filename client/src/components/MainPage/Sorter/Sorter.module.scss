@@ -1,0 +1,12 @@
+.sorter {
+   display: flex;
+   align-items: center;
+   position: relative;
+   .sorterTitle {
+      margin-right: 10px;
+      font-family: "Proxima-Nova";
+      font-weight: 700;
+      color: #000;
+      font-size: 16px;
+   }
+}

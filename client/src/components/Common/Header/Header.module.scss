@@ -1,0 +1,123 @@
+.header {
+   max-width: 1340px;
+   width: 100%;
+   height: 100px;
+   background-color: #fff;
+   border-radius: 13px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 15px;
+   margin-bottom: 30px;
+   .logo {
+      display: flex;
+      .logoImage {
+         margin-right: 15px;
+         object-fit: contain;
+      }
+      .logoText {
+         .logoTitle {
+            font-family: "Proxima-Nova";
+            font-weight: 700;
+            font-size: 25px;
+            letter-spacing: 0.4px;
+            line-height: 20px;
+            margin-bottom: 6px;
+            -webkit-text-stroke-color: #c7b299;
+            -webkit-text-stroke-width: 0.4px;
+            color: black;
+         }
+         .logoSubtitle {
+            color: #7b7b7b;
+            font-size: 16px;
+            letter-spacing: 0.1px;
+         }
+      }
+   }
+   .cart {
+      background-color: #fe5f1e;
+      border-radius: 50px;
+      position: relative;
+      transition: all 0.3s;
+
+      &:hover {
+         background-color: #e3541b;
+      }
+      &:active {
+         transform: translateY(-5px);
+      }
+
+      .cartIcon {
+         position: absolute;
+         top: 12px;
+         left: 13px;
+         cursor: pointer;
+         stroke: #fff;
+      }
+
+      .cartNumber {
+         display: inline-block;
+         padding: 13px 12px 12px 40px;
+         color: #fff;
+         font-size: 20px;
+         font-family: "Proxima-Nova";
+         font-weight: 700;
+      }
+   }
+}
+
+@media (max-width: 550px) {
+   .header {
+      height: 70px;
+      padding: 0 10px;
+      .login {
+         max-width: 45px;
+         height: 45px;
+         padding: 0;
+         color: transparent;
+         position: relative;
+
+         &:hover {
+            color: transparent;
+         }
+         &:active {
+            transform: translateY(5px);
+         }
+         &:before {
+            font-family: "IcoFont";
+            content: "\ed05";
+            color: #525151;
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            font-size: 25px;
+         }
+      }
+      .logo {
+         display: flex;
+         .logoImages {
+            margin-right: 15px;
+            object-fit: contain;
+         }
+         .logoText {
+            max-width: 70px;
+            .logoTitle {
+               font-family: "Proxima-Nova";
+               font-weight: 700;
+               font-size: 22px;
+               letter-spacing: 0.4px;
+               line-height: 20px;
+               margin-bottom: 6px;
+               -webkit-text-stroke-color: #c7b299;
+               -webkit-text-stroke-width: 0.4px;
+               color: black;
+               line-height: 24px;
+               margin-top: 5px;
+            }
+            .logoSubtitle {
+               display: none;
+            }
+         }
+      }
+   }
+}

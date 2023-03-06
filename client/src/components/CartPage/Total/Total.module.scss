@@ -1,0 +1,78 @@
+.total {
+   .info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      .infoQuantity {
+         font-size: 22px;
+         .picked {
+            font-weight: 700;
+         }
+      }
+      .infoPrice {
+         font-size: 22px;
+         .picked {
+            font-weight: 700;
+            color: #fe5f1e;
+         }
+      }
+   }
+   .buttons {
+      display: flex;
+      justify-content: space-between;
+      .back {
+         border: 2px solid #d3d3d3;
+         background-color: #fff;
+         font-size: 18px;
+         font-weight: 700;
+         padding: 15px 20px;
+         color: #d3d3d3;
+         border-radius: 25px;
+         transition: all 0.4s;
+
+         &:hover {
+            border: 2px solid #000;
+            background-color: #000;
+            color: #fff;
+         }
+         &:active {
+            transform: translateY(5px);
+         }
+      }
+   }
+}
+
+@media (max-width: 550px) {
+   .total {
+      .info {
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         margin-bottom: 30px;
+         .infoQuantity {
+            font-family: "Proxima-Nova";
+            font-size: 22px;
+            margin-bottom: 15px;
+            .picked {
+               font-weight: 700;
+            }
+         }
+         .infoPrice {
+            font-family: "Proxima-Nova";
+            font-size: 22px;
+            .picked {
+               font-weight: 700;
+               color: #fe5f1e;
+            }
+         }
+      }
+      .buttons {
+         .back {
+            height: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 11px 10px 0 10px;
+         }
+      }
+   }
+}
