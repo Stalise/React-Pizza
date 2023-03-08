@@ -1,8 +1,12 @@
 {
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "commitlint": "^17.4.4",
     "husky": "^8.0.1"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "commitlint --edit ${1}"
   }
 }
